@@ -12,6 +12,10 @@ builder.Services.AddDbContext<UserContext>(options =>
 {
     options.UseSqlite(builder.Configuration.GetConnectionString("UsersDBConnection") ?? throw new Exception("Bad connection path"));
 });
+builder.Services.AddDbContext<ApplicationContext>(options =>
+{
+    options.UseSqlite(builder.Configuration.GetConnectionString("AntennasDBConnection") ?? throw new Exception("Bad connection path"));
+});
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAccessUserService, AccessUserService>();
