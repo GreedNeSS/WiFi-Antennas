@@ -10,8 +10,9 @@ namespace WiFi_Antennas.DAL.Interfaces
     public interface IAntennaRepository
     {
         List<Antenna> GetAntennas(int take, int skip);
-        bool Create(Antenna antenna);
-        bool Update(Antenna antenna);
-        bool Delete(Antenna antenna);
+        Task<Antenna?> GetAntenna(int id);
+        Task Create(Antenna antenna);
+        Task Update(Antenna antenna);
+        Task Delete(Antenna antenna);
     }
 }
