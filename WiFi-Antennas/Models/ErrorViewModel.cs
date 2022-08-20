@@ -1,9 +1,14 @@
-namespace WiFi_Antennas.Models
+﻿namespace WiFi_Antennas.Models
 {
     public class ErrorViewModel
     {
-        public string? RequestId { get; set; }
+        public string? ErrorMessage { get; protected set; }
+        public string? InvalidProp { get; protected set; }
 
-        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+        public ErrorViewModel(string errorMessage, string? invalidProp = null)
+        {
+            ErrorMessage = errorMessage;
+            InvalidProp = invalidProp;
+        }
     }
 }
