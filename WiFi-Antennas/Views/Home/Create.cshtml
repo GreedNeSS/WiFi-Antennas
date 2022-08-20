@@ -1,6 +1,44 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Create";
 }
-<h1>@ViewData["Title"]</h1>
+@model WiFi_Antennas.Models.AntennaViewModel
 
-<p>Use this page to detail your site's privacy policy.</p>
+<h1>Введите данные новой антенны:</h1>
+
+<form>
+    <div>
+        <label asp-for="Ip">Введите IP: </label>
+        <input asp-for="Ip" />
+    </div>
+    <div>
+        <label asp-for="Address">Введите адрес: </label>
+        <input asp-for="Address" />
+    </div>
+    <div>
+        <label asp-for="SSID">Введите SSID: </label>
+        <input asp-for="SSID" />
+    </div>
+    <div>
+        <label asp-for="Login">Введите логин: </label>
+        <input asp-for="Login" />
+    </div>
+    <div>
+        <label asp-for="Password">Введите пароль: </label>
+        <input asp-for="Password" />
+    </div>
+    <div>
+        <label asp-for="IsServer">Сервер: </label>
+        <input type="checkbox" asp-for="IsServer" value="false" />
+    </div>
+    <div>
+        <label asp-for="Channel">Введите канал: </label>
+        <input asp-for="Channel" type="number" />
+    </div>
+    <div>
+        <label asp-for="ChannelWidth">Введите ширину: </label>
+        <input asp-for="ChannelWidth" type="number" />
+    </div>
+    <div>
+        <button>Добавить</button>
+    </div>
+</form>
