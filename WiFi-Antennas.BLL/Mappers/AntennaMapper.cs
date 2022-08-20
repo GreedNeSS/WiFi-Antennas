@@ -10,7 +10,7 @@ namespace WiFi_Antennas.BLL.Mappers
 {
     public static class AntennaMapper
     {
-        public static Antenna MyMethod(this AntennaDTO antennaDTO)
+        public static Antenna ToEntity(this AntennaDTO antennaDTO)
         {
             return new Antenna()
             {
@@ -23,6 +23,22 @@ namespace WiFi_Antennas.BLL.Mappers
                 Password = antennaDTO.Password,
                 SSID = antennaDTO.SSID,
                 Id = antennaDTO.Id,
+            };
+        }
+
+        public static AntennaDTO ToDTO(this Antenna antenna)
+        {
+            return new AntennaDTO
+            {
+                Address = antenna.Address,
+                Channel = antenna.Channel,
+                ChannelWidth = antenna.ChannelWidth,
+                Ip = antenna.Ip,
+                IsServer = antenna.IsServer,
+                Login = antenna.Login,
+                Password = antenna.Password,
+                SSID = antenna.SSID,
+                Id = antenna.Id,
             };
         }
     }
