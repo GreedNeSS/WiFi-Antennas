@@ -10,7 +10,7 @@ using WiFi_Antennas.DAL.Interfaces;
 
 namespace WiFi_Antennas.DAL.Repositories
 {
-    internal class AntennaRepository : IAntennaRepository
+    public class AntennaRepository : IAntennaRepository
     {
         private ApplicationContext db;
 

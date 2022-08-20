@@ -18,7 +18,7 @@ builder.Services.AddDbContext<ApplicationContext>(options =>
 });
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IAntennaRepository, IAntennaRepository>();
+builder.Services.AddScoped<IAntennaRepository, AntennaRepository>();
 builder.Services.AddScoped<IAccessUserService, AccessUserService>();
 builder.Services.AddTransient<ITokenCreator, TokenCreator>();
 builder.Services.AddScoped<IAntennaService, AntennaService>();
