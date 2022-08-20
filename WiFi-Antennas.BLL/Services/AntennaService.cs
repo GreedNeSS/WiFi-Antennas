@@ -23,7 +23,14 @@ namespace WiFi_Antennas.BLL.Services
 
         public void Create(AntennaDTO antenna)
         {
-            repo.Create(antenna.ToEntity());
+            try
+            {
+                repo.Create(antenna.ToEntity());
+            }
+            catch (Exception)
+            {
+                throw new ValidationException("Антенна с таким IP уже существует!", "IP");
+            }
         }
 
         public void Delete(AntennaDTO antenna)
