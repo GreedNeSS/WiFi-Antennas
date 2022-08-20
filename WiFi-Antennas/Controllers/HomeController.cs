@@ -29,7 +29,7 @@ namespace WiFi_Antennas.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(AntennaViewModel antenna, IAntennaService antennaService)
+        public IActionResult Create(AntennaViewModel antenna, [FromServices] IAntennaService antennaService)
         {
             antennaService.Create(antenna.ToDTO());
             return RedirectToAction("Index");

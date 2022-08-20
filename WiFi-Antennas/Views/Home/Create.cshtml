@@ -5,30 +5,35 @@
 
 <h1>Введите данные новой антенны:</h1>
 
-<form>
+<form method="post">
     <div>
         <label asp-for="Ip">Введите IP: </label>
         <input asp-for="Ip" />
+        <span asp-validation-for="Ip"></span>
     </div>
     <div>
         <label asp-for="Address">Введите адрес: </label>
         <input asp-for="Address" />
+        <span asp-validation-for="Address"></span>
     </div>
     <div>
         <label asp-for="SSID">Введите SSID: </label>
         <input asp-for="SSID" />
+        <span asp-validation-for="SSID"></span>
     </div>
     <div>
         <label asp-for="Login">Введите логин: </label>
         <input asp-for="Login" />
+        <span asp-validation-for="Login"></span>
     </div>
     <div>
         <label asp-for="Password">Введите пароль: </label>
         <input asp-for="Password" />
+        <span asp-validation-for="Password"></span>
     </div>
     <div>
         <label asp-for="IsServer">Сервер: </label>
-        <input type="checkbox" asp-for="IsServer" value="false" />
+        <input type="checkbox" asp-for="IsServer"/>
     </div>
     <div>
         <label asp-for="Channel">Введите канал: </label>
