@@ -37,9 +37,10 @@ namespace WiFi_Antennas.DAL.Repositories
             return antenna;
         }
 
-        public List<Antenna> GetAntennas(int take, int skip)
+        public async Task<List<Antenna>> GetAntennas(int take, int skip)
         {
-            throw new NotImplementedException();
+            List<Antenna> antennas = await db.Antennas.Skip(skip).Take(take).ToListAsync();
+            return antennas;
         }
 
         public async Task Update(Antenna antenna)
