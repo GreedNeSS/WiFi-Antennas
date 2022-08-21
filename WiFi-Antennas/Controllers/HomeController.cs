@@ -4,6 +4,7 @@ using System.Diagnostics;
 using WiFi_Antennas.BLL.Interfaces;
 using WiFi_Antennas.Models;
 using WiFi_Antennas.Mappers;
+using Microsoft.EntityFrameworkCore;
 
 namespace WiFi_Antennas.Controllers
 {
@@ -11,15 +12,20 @@ namespace WiFi_Antennas.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IAntennaService _antennaService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IAntennaService antennaService)
         {
             _logger = logger;
+            _antennaService = antennaService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            List<AntennaViewModel> antennas = (await _antennaService.GetAntennas(5, 0))
+                .Select(a => a.ToViewModel())
+                .ToList();
+            return View(antennas);
         }
 
         [HttpGet]
@@ -29,9 +35,9 @@ namespace WiFi_Antennas.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(AntennaViewModel antenna, [FromServices] IAntennaService antennaService)
+        public IActionResult Create(AntennaViewModel antenna)
         {
-            antennaService.Create(antenna.ToDTO());
+            _antennaService.Create(antenna.ToDTO());
             return RedirectToAction("Index");
         }
 

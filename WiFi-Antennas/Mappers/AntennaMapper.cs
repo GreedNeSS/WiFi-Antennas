@@ -21,5 +21,20 @@ namespace WiFi_Antennas.Mappers
                 Id = antennaView.Id,
             };
         }
+        public static AntennaViewModel ToViewModel(this AntennaDTO antennaDTO)
+        {
+            return new AntennaViewModel()
+            {
+                Address = antennaDTO.Address,
+                Channel = antennaDTO.Channel,
+                ChannelWidth = antennaDTO.ChannelWidth,
+                Ip = antennaDTO.Ip,
+                IsServer = antennaDTO.IsServer,
+                Login = antennaDTO.Login,
+                Password = antennaDTO.Password,
+                SSID = antennaDTO.SSID,
+                Id = antennaDTO.Id,
+            };
+        }
     }
 }
