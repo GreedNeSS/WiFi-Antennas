@@ -1,8 +1,45 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Антенны";
 }
 
+@model IEnumerable<AntennaViewModel>
+
+<h2>
+    Список антенн:
+</h2>
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <table class="table table-striped table-hover">
+
+        <tr>
+            <th>Серв/Клиент</th>
+            <th>IP-Адрес</th>
+            <th>Адрес</th>
+            <th>SSID</th>
+            <th>Пароль</th>
+            <th>Действия</th>
+        </tr>
+
+        @foreach (var antenna in @Model)
+        {
+            <tr>
+                @if (antenna.IsServer)
+                {
+                    <td>Серв</td>
+                }else
+                {
+                    <td>Кл</td>
+                }
+                <td>@antenna.Ip</td>
+                <td>@antenna.Address</td>
+                <td>@antenna.SSID</td>
+                <td>@antenna.Password</td>
+                <td><a asp-action=Edit asp-route-id=@antenna.Id>Редактировать</a></td>
+                <td>
+                    <form asp-controller=Api asp-action=Delete asp-route-id=@antenna.Id>
+                        <button>Удалить</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </table>
 </div>

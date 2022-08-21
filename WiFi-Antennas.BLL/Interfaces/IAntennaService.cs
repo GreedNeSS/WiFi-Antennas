@@ -14,6 +14,6 @@ namespace WiFi_Antennas.BLL.Interfaces
         Task<AntennaDTO> GetAntenna(int id);
         void Create(AntennaDTO antenna);
         void Update(AntennaDTO antenna);
-        void Delete(AntennaDTO antenna);
+        void Delete(int antennaId);
     }
 }

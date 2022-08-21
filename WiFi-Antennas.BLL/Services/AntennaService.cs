@@ -33,9 +33,16 @@ namespace WiFi_Antennas.BLL.Services
             }
         }
 
-        public void Delete(AntennaDTO antenna)
+        public void Delete(int antennaId)
         {
-            repo.Delete(antenna.ToEntity());
+            try
+            {
+                repo.Delete((new AntennaDTO { Id = antennaId }).ToEntity());
+            }
+            catch (Exception)
+            {
+                throw new ValidationException("Антенны не существует или уже была удалена!", "Id");
+            }
         }
 
         public async Task<AntennaDTO> GetAntenna(int id)
