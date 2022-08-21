@@ -33,10 +33,11 @@
                 <td>@antenna.Address</td>
                 <td>@antenna.SSID</td>
                 <td>@antenna.Password</td>
-                <td><a asp-action=Edit asp-route-id=@antenna.Id>Редактировать</a></td>
                 <td>
-                    <form asp-controller=Api asp-action=Delete asp-route-id=@antenna.Id>
-                        <button>Удалить</button>
+                    <a asp-action=Details asp-route-id=@antenna.Id class="btn btn-outline-secondary btn-sm" role="button">Детали</a>
+                    <a asp-action=Edit asp-route-id=@antenna.Id class="btn btn-outline-success btn-sm" role="button">Редактировать</a>
+                    <form asp-controller=Api asp-action=Delete asp-route-id=@antenna.Id style="display: inline-block">
+                        <button type="button" class="btn btn-outline-danger btn-sm">Удалить</button>
                     </form>
                 </td>
             </tr>
