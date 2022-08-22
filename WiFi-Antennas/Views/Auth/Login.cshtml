@@ -1,17 +1,24 @@
 ﻿@model UserViewModel
 
-<h2>Ввредите данные для авторизации:</h2>
-<form method="post">
-    <div>
-        <label asp-for=Login>Логин: </label>
-        <input asp-for=Login />
-        <span asp-validation-for="Login" ></span>
-    </div>
-    <div>
-        <label asp-for=Password>Пароль: </label>
-        <input asp-for=Password />
-        <span asp-validation-for="Password" ></span>
-    </div>
-    @Html.AntiForgeryToken()
-    <button>Авторизоваться</button>
-</form>
+<div class="container px-4">
+    <h2>Введите данные для авторизации:</h2>
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="invalid-feedback" style="display:block;"></div>
+        <div>
+            <label asp-for=Login class="form-label">Логин: </label>
+            <input asp-for=Login class="form-control" />
+            <div class="invalid-feedback" style="display:block;">
+                <span asp-validation-for="Login"></span>
+            </div>
+        </div>
+        <div>
+            <label asp-for=Password class="form-label">Пароль: </label>
+            <input asp-for=Password type="password" class="form-control" />
+            <div class="invalid-feedback" style="display:block;">
+                <span asp-validation-for="Password"></span>
+            </div>
+        </div>
+        @Html.AntiForgeryToken()
+        <button class="btn btn-outline-success mt-3">Авторизоваться</button>
+    </form>
+</div>

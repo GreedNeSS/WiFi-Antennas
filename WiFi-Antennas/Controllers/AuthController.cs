@@ -28,6 +28,10 @@ namespace WiFi_Antennas.Controllers
                     Response.Redirect("/home/index");
                     return SignIn(tokenCreator.GetClaimsPrincipal(user));
                 }
+                else
+                {
+                    ModelState.AddModelError("", "Некорректный логин или пароль");
+                }
                 
             }
 
