@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WiFi_Antennas.BLL.Interfaces;
+using WiFi_Antennas.BLL.Infrastructure;
 using WiFi_Antennas.Models;
 using WiFi_Antennas.Mappers;
 using Microsoft.EntityFrameworkCore;
@@ -37,7 +38,15 @@ namespace WiFi_Antennas.Controllers
         [HttpPost]
         public IActionResult Create(AntennaViewModel antenna)
         {
-            _antennaService.Create(antenna.ToDTO());
+            try
+            {
+                _antennaService.Create(antenna.ToDTO());
+            }
+            catch (ValidationException ex)
+            {
+                return View("Error", new ErrorViewModel(ex.Message, ex.Property));
+            }
+
             return RedirectToAction("Index");
         }
 
