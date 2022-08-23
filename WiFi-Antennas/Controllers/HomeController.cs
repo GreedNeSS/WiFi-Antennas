@@ -49,6 +49,7 @@ namespace WiFi_Antennas.Controllers
         {
             try
             {
+                Console.WriteLine("ID " + antenna.Id);
                 await _antennaService.UpdateAsync(antenna.ToDTO());
                 return RedirectToAction("Index");
             }
