@@ -24,7 +24,7 @@ namespace WiFi_Antennas.Controllers
 
         public async Task<IActionResult> Index()
         {
-            List<AntennaViewModel> antennas = (await _antennaService.GetAntennas(5, 0))
+            List<AntennaViewModel> antennas = (await _antennaService.GetAntennasAsync(5, 0))
                 .Select(a => a.ToViewModel())
                 .ToList();
             return View(antennas);
@@ -35,7 +35,7 @@ namespace WiFi_Antennas.Controllers
         {
             try
             {
-                AntennaViewModel? antenna = (await _antennaService.GetAntenna(antennaId)).ToViewModel();
+                AntennaViewModel? antenna = (await _antennaService.GetAntennaAsync(antennaId)).ToViewModel();
                 return View(antenna);
             }
             catch (ValidationException ex)
@@ -50,6 +50,7 @@ namespace WiFi_Antennas.Controllers
             try
             {
                 await _antennaService.UpdateAsync(antenna.ToDTO());
+                return RedirectToAction("Index");
             }
             catch (ValidationException ex)
             {
