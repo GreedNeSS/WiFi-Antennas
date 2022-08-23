@@ -34,7 +34,6 @@ namespace WiFi_Antennas.DAL.Repositories
         public async Task<Antenna?> GetAntenna(int id)
         {
             Antenna? antenna = await db.Antennas.FirstOrDefaultAsync(a => a.Id == id);
-            Console.WriteLine("repo an id " + id);
             return antenna;
         }
 

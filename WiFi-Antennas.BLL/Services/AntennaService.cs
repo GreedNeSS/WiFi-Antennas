@@ -51,7 +51,6 @@ namespace WiFi_Antennas.BLL.Services
 
             if (antenna == null)
             {
-                Console.WriteLine("service antenna == null. id:" + id);
                 throw new ValidationException("Антенна не найдена", "");
             }
 
