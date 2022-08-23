@@ -21,11 +21,11 @@ namespace WiFi_Antennas.BLL.Services
             repo = repository;
         }
 
-        public void Create(AntennaDTO antenna)
+        public async Task CreateAsync(AntennaDTO antenna)
         {
             try
             {
-                repo.Create(antenna.ToEntity());
+                await repo.Create(antenna.ToEntity());
             }
             catch (Exception)
             {
@@ -33,11 +33,11 @@ namespace WiFi_Antennas.BLL.Services
             }
         }
 
-        public void Delete(int antennaId)
+        public async Task DeleteAsync(int antennaId)
         {
             try
             {
-                repo.Delete((new AntennaDTO { Id = antennaId }).ToEntity());
+                await repo.Delete((new AntennaDTO { Id = antennaId }).ToEntity());
             }
             catch (Exception)
             {
@@ -45,7 +45,7 @@ namespace WiFi_Antennas.BLL.Services
             }
         }
 
-        public async Task<AntennaDTO> GetAntenna(int id)
+        public async Task<AntennaDTO> GetAntennaAsync(int id)
         {
             Antenna? antenna = await repo.GetAntenna(id);
 
@@ -57,17 +57,17 @@ namespace WiFi_Antennas.BLL.Services
             return antenna.ToDTO();
         }
 
-        public async Task<List<AntennaDTO>> GetAntennas(int take, int skip)
+        public async Task<List<AntennaDTO>> GetAntennasAsync(int take, int skip)
         {
             List<Antenna> antennas = await repo.GetAntennas(take, skip);
             return antennas.Select(a => a.ToDTO()).ToList();
         }
 
-        public void Update(AntennaDTO antenna)
+        public async Task UpdateAsync(AntennaDTO antenna)
         {
             try
             {
-                repo.Update(antenna.ToEntity());
+                await repo.Update(antenna.ToEntity());
             }
             catch (Exception)
             {

@@ -10,10 +10,10 @@ namespace WiFi_Antennas.BLL.Interfaces
 {
     public interface IAntennaService
     {
-        Task<List<AntennaDTO>> GetAntennas(int take, int skip);
-        Task<AntennaDTO> GetAntenna(int id);
-        void Create(AntennaDTO antenna);
-        void Update(AntennaDTO antenna);
-        void Delete(int antennaId);
+        Task<List<AntennaDTO>> GetAntennasAsync(int take, int skip);
+        Task<AntennaDTO> GetAntennaAsync(int id);
+        Task CreateAsync(AntennaDTO antenna);
+        Task UpdateAsync(AntennaDTO antenna);
+        Task DeleteAsync(int antennaId);
     }
 }

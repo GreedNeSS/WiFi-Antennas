@@ -49,8 +49,7 @@ namespace WiFi_Antennas.Controllers
         {
             try
             {
-                AntennaViewModel? antenna = (await _antennaService.GetAntenna(antennaId)).ToViewModel();
-                return View(antenna);
+                await _antennaService.UpdateAsync(antenna.ToDTO());
             }
             catch (ValidationException ex)
             {
@@ -69,7 +68,7 @@ namespace WiFi_Antennas.Controllers
         {
             try
             {
-                _antennaService.Create(antenna.ToDTO());
+                _antennaService.CreateAsync(antenna.ToDTO());
             }
             catch (ValidationException ex)
             {
