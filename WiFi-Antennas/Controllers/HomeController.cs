@@ -65,18 +65,17 @@ namespace WiFi_Antennas.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(AntennaViewModel antenna)
+        public async Task<IActionResult> CreateAsync(AntennaViewModel antenna)
         {
             try
             {
-                _antennaService.CreateAsync(antenna.ToDTO());
+                await _antennaService.CreateAsync(antenna.ToDTO());
+                return RedirectToAction("Index");
             }
             catch (ValidationException ex)
             {
                 return View("Error", new ErrorViewModel(ex.Message, ex.Property));
             }
-
-            return RedirectToAction("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

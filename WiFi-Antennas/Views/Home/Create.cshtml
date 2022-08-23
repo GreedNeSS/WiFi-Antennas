@@ -1,49 +1,65 @@
 ﻿@{
     ViewData["Title"] = "Create";
 }
-@model WiFi_Antennas.Models.AntennaViewModel
+@model AntennaViewModel
 
-<h1>Введите данные новой антенны:</h1>
+<div class="container px-4">
 
-<form method="post">
-    <div>
-        <label asp-for="Ip">Введите IP: </label>
-        <input asp-for="Ip" />
-        <span asp-validation-for="Ip"></span>
-    </div>
-    <div>
-        <label asp-for="Address">Введите адрес: </label>
-        <input asp-for="Address" />
-        <span asp-validation-for="Address"></span>
-    </div>
-    <div>
-        <label asp-for="SSID">Введите SSID: </label>
-        <input asp-for="SSID" />
-        <span asp-validation-for="SSID"></span>
-    </div>
-    <div>
-        <label asp-for="Login">Введите логин: </label>
-        <input asp-for="Login" />
-        <span asp-validation-for="Login"></span>
-    </div>
-    <div>
-        <label asp-for="Password">Введите пароль: </label>
-        <input asp-for="Password" />
-        <span asp-validation-for="Password"></span>
-    </div>
-    <div>
-        <label asp-for="IsServer">Сервер: </label>
-        <input type="checkbox" asp-for="IsServer"/>
-    </div>
-    <div>
-        <label asp-for="Channel">Введите канал: </label>
-        <input asp-for="Channel" type="number" />
-    </div>
-    <div>
-        <label asp-for="ChannelWidth">Введите ширину: </label>
-        <input asp-for="ChannelWidth" type="number" />
-    </div>
-    <div>
-        <button>Добавить</button>
-    </div>
-</form>
+    <h3>Введите данные новой антенны:</h3>
+
+    <form method="post">
+        <div>
+            <label asp-for="Ip" class="form-label">Введите IP: </label>
+            <input asp-for="Ip" class="form-control" />
+            <div class="invalid-feedback" style="display:block;">
+                <span asp-validation-for="Ip"></span>
+            </div>
+        </div>
+        <div>
+            <label asp-for="Address" class="form-label">Введите адрес: </label>
+            <input asp-for="Address" class="form-control" />
+            <div class="invalid-feedback" style="display:block;">
+                <span asp-validation-for="Address"></span>
+            </div>
+        </div>
+        <div>
+            <label asp-for="SSID" class="form-label">Введите SSID: </label>
+            <input asp-for="SSID" class="form-control" />
+            <div class="invalid-feedback" style="display:block;">
+                <span asp-validation-for="SSID"></span>
+            </div>
+        </div>
+        <div>
+            <label asp-for="Login" class="form-label">Введите логин: </label>
+            <input asp-for="Login" class="form-control" />
+            <div class="invalid-feedback" style="display:block;">
+                <span asp-validation-for="Login"></span>
+            </div>
+        </div>
+        <div>
+            <label asp-for="Password" class="form-label">Введите пароль: </label>
+            <input asp-for="Password" class="form-control" type="password" />
+            <div class="invalid-feedback" style="display:block;">
+                <span asp-validation-for="Password"></span>
+            </div>
+        </div>
+        <div>
+            <label asp-for="IsServer" class="form-label">Сервер: </label>
+            <input class="form-check-input" type="checkbox" role="switch" asp-for="IsServer" />
+        </div>
+        <div>
+            <label asp-for="Channel" class="form-label">Введите канал: </label>
+            <input asp-for="Channel" type="number" class="form-control" />
+        </div>
+        <div>
+            <label asp-for="ChannelWidth" class="form-label">Введите ширину: </label>
+            <input asp-for="ChannelWidth" type="number" class="form-control" />
+        </div>
+        <div>
+            <button class="btn btn-outline-success mt-3">Добавить</button>
+        </div>
+    </form>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
