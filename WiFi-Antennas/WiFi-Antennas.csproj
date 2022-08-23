@@ -8,11 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Home\Edit.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Views\Home\Edit.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
     <None Include="Views\Home\Create.cshtml" />
     <None Include="Views\Shared\Error.cshtml" />
