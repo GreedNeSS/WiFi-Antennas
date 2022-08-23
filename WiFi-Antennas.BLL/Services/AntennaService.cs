@@ -65,7 +65,14 @@ namespace WiFi_Antennas.BLL.Services
 
         public void Update(AntennaDTO antenna)
         {
-            repo.Update(antenna.ToEntity());
+            try
+            {
+                repo.Update(antenna.ToEntity());
+            }
+            catch (Exception)
+            {
+                throw new ValidationException("Не удалось изменить антенну", "ID");
+            }
         }
     }
 }

@@ -6,6 +6,7 @@ using WiFi_Antennas.BLL.Infrastructure;
 using WiFi_Antennas.Models;
 using WiFi_Antennas.Mappers;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace WiFi_Antennas.Controllers
 {
@@ -27,6 +28,34 @@ namespace WiFi_Antennas.Controllers
                 .Select(a => a.ToViewModel())
                 .ToList();
             return View(antennas);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int antennaId)
+        {
+            try
+            {
+                AntennaViewModel? antenna = (await _antennaService.GetAntenna(antennaId)).ToViewModel();
+                return View(antenna);
+            }
+            catch (ValidationException ex)
+            {
+                return View("Error", new ErrorViewModel(ex.Message, ex.Property));
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(AntennaViewModel antenna)
+        {
+            try
+            {
+                AntennaViewModel? antenna = (await _antennaService.GetAntenna(antennaId)).ToViewModel();
+                return View(antenna);
+            }
+            catch (ValidationException ex)
+            {
+                return View("Error", new ErrorViewModel(ex.Message, ex.Property));
+            }
         }
 
         [HttpGet]
