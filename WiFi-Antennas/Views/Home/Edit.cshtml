@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Edit";
+}
+@model AntennaViewModel
+
+<div class="container px-4">
+
+    <h3>Изменить антенну:</h3>
+
+    <form method="post">
+        <div>
+            <label asp-for="Ip" class="form-label">Введите IP: </label>
+            <input asp-for="Ip" class="form-control" />
+            <div class="invalid-feedback" style="display:block;">
+                <span asp-validation-for="Ip"></span>
+            </div>
+        </div>
+        <div>
+            <label asp-for="Address" class="form-label">Введите адрес: </label>
+            <input asp-for="Address" class="form-control" />
+            <div class="invalid-feedback" style="display:block;">
+                <span asp-validation-for="Address"></span>
+            </div>
+        </div>
+        <div>
+            <label asp-for="SSID" class="form-label">Введите SSID: </label>
+            <input asp-for="SSID" class="form-control" />
+            <div class="invalid-feedback" style="display:block;">
+                <span asp-validation-for="SSID"></span>
+            </div>
+        </div>
+        <div>
+            <label asp-for="Login" class="form-label">Введите логин: </label>
+            <input asp-for="Login" class="form-control" />
+            <div class="invalid-feedback" style="display:block;">
+                <span asp-validation-for="Login"></span>
+            </div>
+        </div>
+        <div>
+            <label asp-for="Password" class="form-label">Введите пароль: </label>
+            <input asp-for="Password" class="form-control" type="password" />
+            <div class="invalid-feedback" style="display:block;">
+                <span asp-validation-for="Password"></span>
+            </div>
+        </div>
+        <div>
+            <label asp-for="IsServer" class="form-label">Сервер: </label>
+            <input class="form-check-input" type="checkbox" role="switch" asp-for="IsServer" />
+        </div>
+        <div>
+            <label asp-for="Channel" class="form-label">Введите канал: </label>
+            <input asp-for="Channel" type="number" class="form-control" />
+        </div>
+        <div>
+            <label asp-for="ChannelWidth" class="form-label">Введите ширину: </label>
+            <input asp-for="ChannelWidth" type="number" class="form-control" />
+        </div>
+        <div>
+            <button class="btn btn-outline-success mt-3">Изменить</button>
+        </div>
+    </form>
+</div>

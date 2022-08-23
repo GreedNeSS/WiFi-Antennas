@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WiFi-Antennas", "WiFi-Antennas\WiFi-Antennas.csproj", "{BA4BF128-2978-4AC2-9969-A86771A1C9AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WiFi-Antennas", "WiFi-Antennas\WiFi-Antennas.csproj", "{BA4BF128-2978-4AC2-9969-A86771A1C9AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WiFi-Antennas.DAL", "WiFi-Antennas.DAL\WiFi-Antennas.DAL.csproj", "{938DE8A7-70EB-4DE6-9D1F-F9294F647329}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WiFi-Antennas.DAL", "WiFi-Antennas.DAL\WiFi-Antennas.DAL.csproj", "{938DE8A7-70EB-4DE6-9D1F-F9294F647329}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WiFi-Antennas.BLL", "WiFi-Antennas.BLL\WiFi-Antennas.BLL.csproj", "{09B539EC-E8EF-4225-8A12-704E3907A043}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WiFi-Antennas.BLL", "WiFi-Antennas.BLL\WiFi-Antennas.BLL.csproj", "{09B539EC-E8EF-4225-8A12-704E3907A043}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
