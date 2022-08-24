@@ -50,10 +50,16 @@
         <div>
             <label asp-for="Channel" class="form-label">Введите канал: </label>
             <input asp-for="Channel" type="number" class="form-control" value="1" />
+            <div class="invalid-feedback" style="display:block;">
+                <span asp-validation-for="Password"></span>
+            </div>
         </div>
         <div>
             <label asp-for="ChannelWidth" class="form-label">Введите ширину: </label>
             <input asp-for="ChannelWidth" type="number" class="form-control" value="40" />
+            <div class="invalid-feedback" style="display:block;">
+                <span asp-validation-for="Password"></span>
+            </div>
         </div>
         <div>
             <button class="btn btn-outline-success mt-3">Добавить</button>

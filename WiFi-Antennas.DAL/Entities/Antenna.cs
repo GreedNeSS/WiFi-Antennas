@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace WiFi_Antennas.DAL.Entities
 {
 
-    [Index("Address", IsUnique = true)]
+    [Index("Ip", IsUnique = true)]
     public class Antenna
     {
         public int Id { get; set; }
