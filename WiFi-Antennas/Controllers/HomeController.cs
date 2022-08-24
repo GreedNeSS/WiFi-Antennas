@@ -24,7 +24,7 @@ namespace WiFi_Antennas.Controllers
 
         public async Task<IActionResult> Index()
         {
-            List<AntennaViewModel> antennas = (await _antennaService.GetAntennasAsync(5, 0))
+            List<AntennaViewModel> antennas = (await _antennaService.GetAntennasAsync(10, 0))
                 .Select(a => a.ToViewModel())
                 .ToList();
             return View(antennas);
@@ -66,7 +66,7 @@ namespace WiFi_Antennas.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateAsync(AntennaViewModel antenna)
+        public async Task<IActionResult> Create(AntennaViewModel antenna)
         {
             try
             {
