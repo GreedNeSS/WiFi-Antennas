@@ -29,7 +29,8 @@ namespace WiFi_Antennas.BLL.Services
             }
             catch (Exception)
             {
-                throw new ValidationException("Произошла ошибка записи при созании новой антенны!", "");
+                throw new ValidationException("Произошла ошибка записи при созании новой антенны! " +
+                    "Возможно антенна с таким IP уже существует.", "IP");
             }
         }
 
