@@ -4,23 +4,51 @@
 
 @model AntennaViewModel
 
-<div class="card text-bg-light mb-3" style="max-width: 1000px;">
+<div class="card text-bg-light mb-3" ">
     <div class="card-header">Карточка антенны</div>
     <div class="card-body">
         <h5 class="card-title">Параметры антенны:</h5>
-        @if (Model.IsServer)
-        {
-            <p class="card-text">Сервер</p>
-        }
-        else
-        {
-            <p class="card-text">Клиент</p>
-        }
-        <p class="card-text">IP-Адрес: @Model.Ip</p>
-        <p class="card-text">Адрес: @Model.Address</p>
-        <p class="card-text">Название точки доступа: @Model.SSID</p>
-        <p class="card-text">Логин для входа в антенну: @Model.Login</p>
-        <p class="card-text">Пароль: @Model.Password</p>
-        <p class="card-text">Канал: @Model.Channel</p>
-        <p class="card-text">Шырина канала (MHz): @Model.ChannelWidth</p>
+        <table class="table table-success table-striped table-hover">
+            <tr>
+                <th></th>
+                <th>
+                    @if (Model.IsServer)
+                    {
+                        <span>Сервер</span>
+                    }
+                    else
+                    {
+                        <span>Клиент</span>
+                    }
+                </th>
+            </tr>
+            <tr>
+                <td>IP-Адрес:</td>
+                <td>@Model.Ip</td>
+            </tr>
+            <tr>
+                <td>Адрес:</td>
+                <td>@Model.Address</td>
+            </tr>
+            <tr>
+                <td>Название точки доступа:</td>
+                <td>@Model.SSID</td>
+            </tr>
+            <tr>
+                <td>Логин для входа в антенну:</td>
+                <td>@Model.Login</td>
+            </tr>
+            <tr>
+                <td>Пароль:</td>
+                <td>@Model.Password</td>
+            </tr>
+            <tr>
+                <td>Канал:</td>
+                <td>@Model.Channel</td>
+            </tr>
+            <tr>
+                <td>Ширина канала (MHz):</td>
+                <td>@Model.ChannelWidth</td>
+            </tr>
+        </table>
     </div>
