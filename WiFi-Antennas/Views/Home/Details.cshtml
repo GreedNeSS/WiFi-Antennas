@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Детали";
+}
+
+@model AntennaViewModel
+
+<div class="card text-bg-light mb-3" style="max-width: 1000px;">
+    <div class="card-header">Карточка антенны</div>
+    <div class="card-body">
+        <h5 class="card-title">Параметры антенны:</h5>
+        @if (Model.IsServer)
+        {
+            <p class="card-text">Сервер</p>
+        }
+        else
+        {
+            <p class="card-text">Клиент</p>
+        }
+        <p class="card-text">IP-Адрес: @Model.Ip</p>
+        <p class="card-text">Адрес: @Model.Address</p>
+        <p class="card-text">Название точки доступа: @Model.SSID</p>
+        <p class="card-text">Логин для входа в антенну: @Model.Login</p>
+        <p class="card-text">Пароль: @Model.Password</p>
+        <p class="card-text">Канал: @Model.Channel</p>
+        <p class="card-text">Шырина канала (MHz): @Model.ChannelWidth</p>
+    </div>
