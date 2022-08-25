@@ -79,6 +79,20 @@ namespace WiFi_Antennas.Controllers
             }
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            try
+            {
+                await _antennaService.DeleteAsync(id);
+                return RedirectToAction("Index");
+            }
+            catch (ValidationException ex)
+            {
+                return View("Error", new ErrorViewModel(ex.Message, ex.Property));
+            }
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error(ErrorViewModel error)
         {
