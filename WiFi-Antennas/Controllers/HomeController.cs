@@ -93,6 +93,19 @@ namespace WiFi_Antennas.Controllers
             }
         }
 
+        public async Task<IActionResult> Details(int id)
+        {
+            try
+            {
+                AntennaViewModel antenna = (await _antennaService.GetAntennaAsync(id)).ToViewModel();
+                return View(antenna);
+            }
+            catch (ValidationException ex)
+            {
+                return View("Error", new ErrorViewModel(ex.Message, ex.Property));
+            }
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error(ErrorViewModel error)
         {
