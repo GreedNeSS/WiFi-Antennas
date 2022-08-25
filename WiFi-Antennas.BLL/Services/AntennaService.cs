@@ -72,7 +72,7 @@ namespace WiFi_Antennas.BLL.Services
             }
             catch (Exception)
             {
-                throw new ValidationException("Не удалось изменить антенну", "ID");
+                throw new ValidationException("Не удалось изменить антенну. Возможно антенна с таким IP уже существует.", "IP");
             }
         }
     }
