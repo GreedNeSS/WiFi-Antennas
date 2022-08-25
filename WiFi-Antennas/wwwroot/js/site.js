@@ -1,4 +1,7 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
+﻿const exampleModal = document.getElementById('exampleModal')
+exampleModal.addEventListener('show.bs.modal', event => {
+    const button = event.relatedTarget
+    const recipient = button.getAttribute('data-delete-id')
+    const form = exampleModal.querySelector('#formDelete')
+    form.setAttribute('action', `/Home/Delete/${recipient}`)
+})

@@ -36,32 +36,34 @@
                 <td>
                     <a asp-action=Details asp-route-id=@antenna.Id class="btn btn-outline-secondary btn-sm" role="button">Детали</a>
                     <a asp-action=Edit asp-route-antennaId=@antenna.Id class="btn btn-outline-success btn-sm" role="button">Редактировать</a>
-                    <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button type="button" data-delete-id=@antenna.Id class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Удалить
                     </button>
 
-                    <!-- Модальное окно -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Удаление антенны!</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
-                                </div>
-                                <div class="modal-body">
-                                    Вы действительно хотите удалить эту антенну?
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Закрыть</button>
-                                    <form method="post" asp-action=Delete asp-route-id=@antenna.Id >
-                                        <button type="submit" class="btn btn-outline-danger btn-sm">Удалить</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                   
                 </td>
             </tr>
         }
     </table>
+    <!-- Модальное окно -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Удаление антенны!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+                    Вы действительно хотите удалить эту антенну?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Закрыть</button>
+                    <form method="post" id="formDelete" asp-action=Delete>
+                        <button type="submit" class="btn btn-outline-danger btn-sm">Удалить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<script src="~/js/site.js" asp-append-version="true"></script>  
