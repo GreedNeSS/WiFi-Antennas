@@ -27,7 +27,7 @@ namespace WiFi_Antennas.Controllers
             List<AntennaViewModel> antennas = (await _antennaService.GetAntennasAsync(10, 0))
                 .Select(a => a.ToViewModel())
                 .ToList();
-            return View(antennas);
+            return View(new IndexViewModel(antennas));
         }
 
         [HttpGet]

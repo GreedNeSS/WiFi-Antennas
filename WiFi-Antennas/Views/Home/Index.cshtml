@@ -2,7 +2,7 @@
     ViewData["Title"] = "Антенны";
 }
 
-@model IEnumerable<AntennaViewModel>
+@model IndexViewModel
 
 <h2>
     Список антенн:
@@ -19,7 +19,7 @@
             <th>Действия</th>
         </tr>
 
-        @foreach (var antenna in @Model)
+        @foreach (var antenna in @Model.Antennas)
         {
             <tr>
                 @if (antenna.IsServer)
