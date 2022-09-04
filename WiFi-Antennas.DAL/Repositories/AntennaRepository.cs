@@ -73,6 +73,12 @@ namespace WiFi_Antennas.DAL.Repositories
             return antennaList;
         }
 
+        public async Task<int> GetCount()
+        {
+            int count = await db.Antennas.CountAsync();
+            return count;
+        }
+
         public async Task Update(Antenna antenna)
         {
             db.Antennas.Update(antenna);
