@@ -58,10 +58,16 @@ namespace WiFi_Antennas.BLL.Services
             return antenna.ToDTO();
         }
 
-        public async Task<List<AntennaDTO>> GetAntennasAsync(int take, int skip)
+        public async Task<List<AntennaDTO>> GetAntennasAsync(int take, int skip, string ssid = "", string ip = "",
+            string address = "", SortStateDTO sortState = SortStateDTO.IpAsc)
         {
-            List<Antenna> antennas = await repo.GetAntennas(take, skip);
+            List<Antenna> antennas = await repo.GetAntennas(take, skip, ssid, ip, address, sortState.ToDAL());
             return antennas.Select(a => a.ToDTO()).ToList();
+        }
+
+        public async Task<int> GetCountAsync()
+        {
+            return await repo.GetCount();
         }
 
         public async Task UpdateAsync(AntennaDTO antenna)
