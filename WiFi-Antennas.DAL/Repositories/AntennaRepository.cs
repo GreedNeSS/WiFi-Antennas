@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 using WiFi_Antennas.DAL.EF;
 using WiFi_Antennas.DAL.Entities;
@@ -37,10 +39,38 @@ namespace WiFi_Antennas.DAL.Repositories
             return antenna;
         }
 
-        public async Task<List<Antenna>> GetAntennas(int take, int skip)
+        public async Task<List<Antenna>> GetAntennas(int take, int skip, string ssid, string ip,
+            string address, SortState sortState = SortState.IpAsc)
         {
-            List<Antenna> antennas = await db.Antennas.Skip(skip).Take(take).ToListAsync();
-            return antennas;
+            IQueryable<Antenna> antennas = db.Antennas;
+
+            if (!string.IsNullOrEmpty(ssid))
+            {
+                antennas = antennas.Where(a => a.SSID!.Contains(ssid));
+            }
+
+            if (!string.IsNullOrEmpty(ip))
+            {
+                antennas = antennas.Where(a => a.Ip!.Contains(ip));
+            }
+
+            if (!string.IsNullOrEmpty(address))
+            {
+                antennas = antennas.Where(a => a.Address!.Contains(address));
+            }
+
+            antennas = sortState switch
+            {
+                SortState.IpDesc => antennas.OrderByDescending(a => a.Ip),
+                SortState.SSIDDesc => antennas.OrderByDescending(a => a.SSID),
+                SortState.SSIDAsc => antennas.OrderBy(a => a.SSID),
+                SortState.AddressAsc => antennas.OrderBy(a => a.Address),
+                SortState.AddressDesc => antennas.OrderByDescending(a => a.Address),
+                _ => antennas.OrderBy(a => a.Ip)
+            };
+
+            List<Antenna> antennaList = await antennas.Skip(skip).Take(take).ToListAsync();
+            return antennaList;
         }
 
         public async Task Update(Antenna antenna)
