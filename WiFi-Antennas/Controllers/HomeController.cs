@@ -22,12 +22,21 @@ namespace WiFi_Antennas.Controllers
             _antennaService = antennaService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string ip, string address, string ssid,
+            int page = 1, SortStateViewModel sortOrder = SortStateViewModel.IpAsc)
         {
-            List<AntennaViewModel> antennas = (await _antennaService.GetAntennasAsync(10, 0))
+            int pageSize = 3;
+            int antennaCount = await _antennaService.GetCountAsync();
+            int skip = (page - 1) * pageSize;
+
+            List<AntennaViewModel> antennas = (await _antennaService.GetAntennasAsync(pageSize, skip, ssid, ip, address, sortOrder.ToDTO()))
                 .Select(a => a.ToViewModel())
                 .ToList();
-            return View(new IndexViewModel(antennas));
+
+            return View(new IndexViewModel(antennas,
+                new FilterViewModel { IpFiltering = ip, AddressFiltering = address, SSIDFiltering = ssid},
+                new SortViewModel(sortOrder),
+                new PageViewModel(antennaCount, page, pageSize)));
         }
 
         [HttpGet]
