@@ -15,6 +15,6 @@ namespace WiFi_Antennas.DAL.Interfaces
         Task Create(Antenna antenna);
         Task Update(Antenna antenna);
         Task Delete(Antenna antenna);
-        Task<int> GetCount();
+        Task<int> GetCount(string ssid, string ip, string address);
     }
 }
