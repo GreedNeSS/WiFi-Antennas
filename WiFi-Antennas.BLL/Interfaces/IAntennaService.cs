@@ -13,7 +13,7 @@ namespace WiFi_Antennas.BLL.Interfaces
     {
         Task<List<AntennaDTO>> GetAntennasAsync(int take, int skip, string ssid, string ip,
             string address, SortStateDTO sortState = SortStateDTO.IpAsc);
-        Task<int> GetCountAsync();
+        Task<int> GetCountAsync(string ssid, string ip, string address);
         Task<AntennaDTO> GetAntennaAsync(int id);
         Task CreateAsync(AntennaDTO antenna);
         Task UpdateAsync(AntennaDTO antenna);
