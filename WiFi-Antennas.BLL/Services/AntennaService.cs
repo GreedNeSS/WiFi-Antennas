@@ -65,9 +65,9 @@ namespace WiFi_Antennas.BLL.Services
             return antennas.Select(a => a.ToDTO()).ToList();
         }
 
-        public async Task<int> GetCountAsync()
+        public async Task<int> GetCountAsync(string ssid = "", string ip = "", string address = "")
         {
-            return await repo.GetCount();
+            return await repo.GetCount(ssid, ip, address);
         }
 
         public async Task UpdateAsync(AntennaDTO antenna)
