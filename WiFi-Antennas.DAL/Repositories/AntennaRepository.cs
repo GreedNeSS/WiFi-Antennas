@@ -43,7 +43,37 @@ namespace WiFi_Antennas.DAL.Repositories
             string address, SortState sortState = SortState.IpAsc)
         {
             IQueryable<Antenna> antennas = db.Antennas;
+            antennas = Filtering(antennas, ssid, ip, address);
+            antennas = sortState switch
+            {
+                SortState.IpDesc => antennas.OrderByDescending(a => a.Ip),
+                SortState.SSIDDesc => antennas.OrderByDescending(a => a.SSID),
+                SortState.SSIDAsc => antennas.OrderBy(a => a.SSID),
+                SortState.AddressAsc => antennas.OrderBy(a => a.Address),
+                SortState.AddressDesc => antennas.OrderByDescending(a => a.Address),
+                _ => antennas.OrderBy(a => a.Ip)
+            };
 
+            List<Antenna> antennaList = await antennas.Skip(skip).Take(take).ToListAsync();
+            return antennaList;
+        }
+
+        public async Task<int> GetCount(string ssid, string ip, string address)
+        {
+            IQueryable<Antenna> antennas = db.Antennas;
+            antennas = Filtering(antennas, ssid, ip, address);
+            int count = await antennas.CountAsync();
+            return count;
+        }
+
+        public async Task Update(Antenna antenna)
+        {
+            db.Antennas.Update(antenna);
+            await db.SaveChangesAsync();
+        }
+
+        private IQueryable<Antenna> Filtering(IQueryable<Antenna> antennas, string ssid, string ip, string address)
+        {
             if (!string.IsNullOrEmpty(ssid))
             {
                 antennas = antennas.Where(a => a.SSID!.Contains(ssid));
@@ -59,30 +89,7 @@ namespace WiFi_Antennas.DAL.Repositories
                 antennas = antennas.Where(a => a.Address!.Contains(address));
             }
 
-            antennas = sortState switch
-            {
-                SortState.IpDesc => antennas.OrderByDescending(a => a.Ip),
-                SortState.SSIDDesc => antennas.OrderByDescending(a => a.SSID),
-                SortState.SSIDAsc => antennas.OrderBy(a => a.SSID),
-                SortState.AddressAsc => antennas.OrderBy(a => a.Address),
-                SortState.AddressDesc => antennas.OrderByDescending(a => a.Address),
-                _ => antennas.OrderBy(a => a.Ip)
-            };
-
-            List<Antenna> antennaList = await antennas.Skip(skip).Take(take).ToListAsync();
-            return antennaList;
-        }
-
-        public async Task<int> GetCount()
-        {
-            int count = await db.Antennas.CountAsync();
-            return count;
-        }
-
-        public async Task Update(Antenna antenna)
-        {
-            db.Antennas.Update(antenna);
-            await db.SaveChangesAsync();
+            return antennas;
         }
     }
 }
