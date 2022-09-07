@@ -51,7 +51,7 @@ namespace WiFi_Antennas.TagHelpers
                 tag.InnerHtml.AppendHtml(nextItem);
             }
 
-            if (PageModel.HasSpace)
+            if (PageModel.HasLastSpace)
             {
                 TagBuilder space = CreateTag(0, urlHelper);
                 tag.InnerHtml.AppendHtml(space);
