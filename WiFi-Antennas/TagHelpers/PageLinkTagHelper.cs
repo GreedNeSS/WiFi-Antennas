@@ -51,6 +51,18 @@ namespace WiFi_Antennas.TagHelpers
                 tag.InnerHtml.AppendHtml(nextItem);
             }
 
+            if (PageModel.HasSpace)
+            {
+                TagBuilder space = CreateTag(0, urlHelper);
+                tag.InnerHtml.AppendHtml(space);
+            }
+
+            if (PageModel.HasFinalPage)
+            {
+                TagBuilder space = CreateTag(PageModel.TotalPages, urlHelper);
+                tag.InnerHtml.AppendHtml(space);
+            }
+
             output.Content.AppendHtml(tag);
         }
 
@@ -58,8 +70,11 @@ namespace WiFi_Antennas.TagHelpers
         {
             TagBuilder item = new TagBuilder("li");
             TagBuilder link = new TagBuilder("a");
-
-            if (pageNumber == PageModel!.PageNumber)
+            if (pageNumber == 0)
+            {
+                item.AddCssClass("disabled");
+            }
+            else if (pageNumber == PageModel!.PageNumber)
             {
                 item.AddCssClass("active");
             }
@@ -71,7 +86,7 @@ namespace WiFi_Antennas.TagHelpers
 
             item.AddCssClass("page-item");
             link.AddCssClass("page-link");
-            link.InnerHtml.Append(pageNumber.ToString());
+            link.InnerHtml.Append(pageNumber == 0 ? ".." : pageNumber.ToString());
             item.InnerHtml.AppendHtml(link);
             return item;
         }
