@@ -37,6 +37,18 @@ namespace WiFi_Antennas.TagHelpers
             tag.AddCssClass("pagination");
             TagBuilder currentItem = CreateTag(PageModel.PageNumber, urlHelper);
 
+            if (PageModel.HasFirstPage)
+            {
+                TagBuilder space = CreateTag(1, urlHelper);
+                tag.InnerHtml.AppendHtml(space);
+            }
+
+            if (PageModel.HasStartSpace)
+            {
+                TagBuilder space = CreateTag(0, urlHelper);
+                tag.InnerHtml.AppendHtml(space);
+            }
+
             if (PageModel.HasPreviousPage)
             {
                 TagBuilder prevItem = CreateTag(PageModel.PageNumber - 1, urlHelper);
