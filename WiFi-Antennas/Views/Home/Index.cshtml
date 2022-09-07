@@ -4,31 +4,31 @@
 
 @model IndexViewModel
 
-<h2>
-    Список антенн:
-</h2>
-
 <h3>
     Параметры поиска:
 </h3>
 
-<form method="get" class="row g-3">
-    <div class="col-auto">
+<form method="get" class="row g-1">
+    <div class="col-auto p-1">
         <label for="ip" class="visually-hidden">IP-адрес</label>
         <input type="text" name="ip" class="form-control" placeholder="IP-адрес" value="@Model.Filter.IpFiltering">
     </div>
-    <div class="col-auto">
+    <div class="col-auto p-1">
         <label for="address" class="visually-hidden">Адрес</label>
         <input type="text" class="form-control" name="address" placeholder="Адрес" value="@Model.Filter.AddressFiltering">
     </div>
-    <div class="col-auto">
+    <div class="col-auto p-1">
         <label for="ssid" class="visually-hidden">SSID</label>
         <input type="text" class="form-control" name="ssid" placeholder="SSID" value="@Model.Filter.SSIDFiltering">
     </div>
-    <div class="col-auto">
+    <div class="col-auto p-1">
         <button type="submit" class="btn btn-outline-success btn-sm">Поиск</button>
     </div>
 </form>
+
+<h2>
+    Список антенн:
+</h2>
 
 <div class="text-center">
     <table class="table table-striped table-hover">
