@@ -26,7 +26,11 @@ namespace WiFi_Antennas.Models
 
         [Required(ErrorMessage = "Поле обязательно к заполнению!")]
         [StringLength(15, MinimumLength = 8, ErrorMessage = "Длинна пароля должны составлять 8-15 символов")]
-        public string? Password { get; set; }
+        public string? AccessPointPassword { get; set; }
+
+        [Required(ErrorMessage = "Поле обязательно к заполнению!")]
+        [StringLength(15, MinimumLength = 8, ErrorMessage = "Длинна пароля должны составлять 8-15 символов")]
+        public string? HardwarePassword { get; set; }
         [Required(ErrorMessage = "Поле обязательно к заполнению!")]
         public int ChannelWidth { get; set; }
         [Required(ErrorMessage = "Поле обязательно к заполнению!")]
