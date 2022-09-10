@@ -33,7 +33,11 @@ namespace WiFi_Antennas.DAL.Entities
 
         [Required]
         [StringLength(15, MinimumLength = 8)]
-        public string? Password { get; set; }
+        public string? AccessPointPassword { get; set; }
+
+        [Required]
+        [StringLength(15, MinimumLength = 8)]
+        public string? HardwarePassword { get; set; }
         public int ChannelWidth { get; set; } = 40;
         public int Channel { get; set; } = 1;
     }
