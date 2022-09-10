@@ -20,7 +20,8 @@ namespace WiFi_Antennas.BLL.Mappers
                 Ip = antennaDTO.Ip,
                 IsServer = antennaDTO.IsServer,
                 Login = antennaDTO.Login,
-                Password = antennaDTO.Password,
+                AccessPointPassword = antennaDTO.AccessPointPassword,
+                HardwarePassword = antennaDTO.HardwarePassword,
                 SSID = antennaDTO.SSID,
                 Id = antennaDTO.Id,
             };
@@ -36,7 +37,8 @@ namespace WiFi_Antennas.BLL.Mappers
                 Ip = antenna.Ip,
                 IsServer = antenna.IsServer,
                 Login = antenna.Login,
-                Password = antenna.Password,
+                AccessPointPassword = antenna.AccessPointPassword,
+                HardwarePassword = antenna.HardwarePassword,
                 SSID = antenna.SSID,
                 Id = antenna.Id,
             };
