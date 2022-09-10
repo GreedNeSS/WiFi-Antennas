@@ -56,7 +56,7 @@
                 asp-route-ssid="@Model.Filter.SSIDFiltering"
                 asp-route-sortOrder="@Model.Sort.SSIDSort">SSID</a>
             </th>
-            <th>Пароль</th>
+            <th>Пароль<br/>точки доступа</th>
             <th>Действия</th>
         </tr>
 
@@ -73,7 +73,7 @@
                 <td>@antenna.Ip</td>
                 <td>@antenna.Address</td>
                 <td>@antenna.SSID</td>
-                <td>@antenna.Password</td>
+                <td>@antenna.AccessPointPassword</td>
                 <td>
                     <a asp-action=Details asp-route-id=@antenna.Id class="btn btn-outline-secondary btn-sm" role="button">Детали</a>
                     <a asp-action=Edit asp-route-antennaId=@antenna.Id class="btn btn-outline-success btn-sm" role="button">Редактировать</a>
