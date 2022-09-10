@@ -16,7 +16,8 @@ namespace WiFi_Antennas.Mappers
                 Ip = antennaView.Ip,
                 IsServer = antennaView.IsServer,
                 Login = antennaView.Login,
-                Password = antennaView.Password,
+                AccessPointPassword = antennaView.AccessPointPassword,
+                HardwarePassword = antennaView.HardwarePassword,
                 SSID = antennaView.SSID,
                 Id = antennaView.Id,
             };
@@ -31,7 +32,8 @@ namespace WiFi_Antennas.Mappers
                 Ip = antennaDTO.Ip,
                 IsServer = antennaDTO.IsServer,
                 Login = antennaDTO.Login,
-                Password = antennaDTO.Password,
+                AccessPointPassword = antennaDTO.AccessPointPassword,
+                HardwarePassword = antennaDTO.HardwarePassword,
                 SSID = antennaDTO.SSID,
                 Id = antennaDTO.Id,
             };
