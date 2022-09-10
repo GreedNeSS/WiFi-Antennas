@@ -15,7 +15,8 @@ namespace WiFi_Antennas.BLL.DTO
         public string? Ip { get; set; }
         public bool IsServer { get; set; }
         public string? Login { get; set; }
-        public string? Password { get; set; }
+        public string? AccessPointPassword { get; set; }
+        public string? HardwarePassword { get; set; }
         public int ChannelWidth { get; set; }
         public int Channel { get; set; }
     }
