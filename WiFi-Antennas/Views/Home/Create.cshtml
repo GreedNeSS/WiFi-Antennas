@@ -37,10 +37,17 @@
             </div>
         </div>
         <div>
-            <label asp-for="Password" class="form-label">Введите пароль: </label>
-            <input asp-for="Password" class="form-control" type="password" />
+            <label asp-for="AccessPointPassword" class="form-label">Введите пароль точки доступа: </label>
+            <input asp-for="AccessPointPassword" class="form-control" type="password" />
             <div class="invalid-feedback" style="display:block;">
-                <span asp-validation-for="Password"></span>
+                <span asp-validation-for="AccessPointPassword"></span>
+            </div>
+        </div>
+        <div>
+            <label asp-for="HardwarePassword" class="form-label">Введите пароль для настройки антенны: </label>
+            <input asp-for="HardwarePassword" class="form-control" type="password" />
+            <div class="invalid-feedback" style="display:block;">
+                <span asp-validation-for="HardwarePassword"></span>
             </div>
         </div>
         <div>
@@ -50,16 +57,10 @@
         <div>
             <label asp-for="Channel" class="form-label">Введите канал: </label>
             <input asp-for="Channel" type="number" class="form-control" value="1" />
-            <div class="invalid-feedback" style="display:block;">
-                <span asp-validation-for="Password"></span>
-            </div>
         </div>
         <div>
             <label asp-for="ChannelWidth" class="form-label">Введите ширину: </label>
             <input asp-for="ChannelWidth" type="number" class="form-control" value="40" />
-            <div class="invalid-feedback" style="display:block;">
-                <span asp-validation-for="Password"></span>
-            </div>
         </div>
         <div>
             <button class="btn btn-outline-success mt-3">Добавить</button>
