@@ -14,22 +14,25 @@
         { 41, 2464 },
     };
 }
+<div class="card text-bg-light mb-3" ">
+    <div class="card-header">Каналы Wi-Fi 2,4 ГГц</div>
+    <div class="card-body">
+        <h5 class="card-title">Список частот для старших каналов:</h2>
+        <table class="table table-hover table-striped">
+            <tr>
+                <th>
+                    Номер канала
+                </th>
+                <th>
+                    Частота канала
+                </th>
+            </tr>
 
-<h2>Список частот для старших каналов Wi-Fi 2,4 ГГц:</h2>
+            @foreach (var channel in channels)
+            {
+                <tr><td>@channel.Key</td><td>@channel.Value</td></tr>
+            }
 
-<table class="table table-hover table-striped">
-    <tr>
-        <th>
-            Номер канала
-        </th>
-        <th>
-            Частота канала
-        </th>
-    </tr>
-
-    @foreach (var channel in channels)
-    {
-        <tr><td>@channel.Key</td><td>@channel.Value</td></tr>
-    }
-
-</table>
+        </table>
+    </div>
+</div>
