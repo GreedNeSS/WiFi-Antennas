@@ -35,5 +35,7 @@ namespace WiFi_Antennas.Models
         public int ChannelWidth { get; set; }
         [Required(ErrorMessage = "Поле обязательно к заполнению!")]
         public int Channel { get; set; }
+        public string? Producer { get; set; }
+        public string? Commentary { get; set; }
     }
 }

@@ -20,6 +20,8 @@ namespace WiFi_Antennas.Mappers
                 HardwarePassword = antennaView.HardwarePassword,
                 SSID = antennaView.SSID,
                 Id = antennaView.Id,
+                Producer = antennaView.Producer,
+                Commentary = antennaView.Commentary,
             };
         }
         public static AntennaViewModel ToViewModel(this AntennaDTO antennaDTO)
@@ -36,6 +38,8 @@ namespace WiFi_Antennas.Mappers
                 HardwarePassword = antennaDTO.HardwarePassword,
                 SSID = antennaDTO.SSID,
                 Id = antennaDTO.Id,
+                Producer = antennaDTO.Producer,
+                Commentary = antennaDTO.Commentary,
             };
         }
     }
