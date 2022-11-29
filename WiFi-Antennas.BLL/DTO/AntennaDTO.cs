@@ -19,5 +19,7 @@ namespace WiFi_Antennas.BLL.DTO
         public string? HardwarePassword { get; set; }
         public int ChannelWidth { get; set; }
         public int Channel { get; set; }
+        public string? Producer { get; set; }
+        public string? Commentary { get; set; }
     }
 }

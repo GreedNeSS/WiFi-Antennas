@@ -24,6 +24,8 @@ namespace WiFi_Antennas.BLL.Mappers
                 HardwarePassword = antennaDTO.HardwarePassword,
                 SSID = antennaDTO.SSID,
                 Id = antennaDTO.Id,
+                Producer = antennaDTO.Producer,
+                Commentary = antennaDTO.Commentary,
             };
         }
 
@@ -41,6 +43,8 @@ namespace WiFi_Antennas.BLL.Mappers
                 HardwarePassword = antenna.HardwarePassword,
                 SSID = antenna.SSID,
                 Id = antenna.Id,
+                Producer = antenna.Producer,
+                Commentary = antenna.Commentary,
             };
         }
     }
