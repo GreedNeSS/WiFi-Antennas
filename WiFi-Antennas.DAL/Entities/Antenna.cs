@@ -40,5 +40,7 @@ namespace WiFi_Antennas.DAL.Entities
         public string? HardwarePassword { get; set; }
         public int ChannelWidth { get; set; } = 40;
         public int Channel { get; set; } = 1;
+        public string? Producer { get; set; }
+        public string? Commentary { get; set; }
     }
 }
