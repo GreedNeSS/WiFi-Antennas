@@ -25,7 +25,7 @@ namespace WiFi_Antennas.Controllers
         public async Task<IActionResult> Index(string ssid, string ip, string address,
             int page = 1, SortStateViewModel sortOrder = SortStateViewModel.IpAsc)
         {
-            int pageSize = 3;
+            int pageSize = 5;
             int antennaCount = await _antennaService.GetCountAsync(ssid, ip, address);
             int skip = (page - 1) * pageSize;
 
