@@ -15,11 +15,11 @@ namespace WiFi_Antennas.DAL.Entities
         public int Id { get; set; }
 
         [Required]
-        [StringLength(30, MinimumLength = 5)]
+        [StringLength(40, MinimumLength = 5)]
         public string? Address { get; set; }
 
         [Required]
-        [StringLength(10, MinimumLength = 4)]
+        [StringLength(20, MinimumLength = 4)]
         public string? SSID { get; set; }
 
         [Required]
@@ -28,15 +28,15 @@ namespace WiFi_Antennas.DAL.Entities
         public bool IsServer { get; set; }
 
         [Required]
-        [StringLength(10, MinimumLength = 3)]
+        [StringLength(20, MinimumLength = 3)]
         public string? Login { get; set; }
 
         [Required]
-        [StringLength(15, MinimumLength = 8)]
+        [StringLength(20, MinimumLength = 8)]
         public string? AccessPointPassword { get; set; }
 
         [Required]
-        [StringLength(15, MinimumLength = 8)]
+        [StringLength(20, MinimumLength = 8)]
         public string? HardwarePassword { get; set; }
         public int ChannelWidth { get; set; } = 40;
         public int Channel { get; set; } = 1;
