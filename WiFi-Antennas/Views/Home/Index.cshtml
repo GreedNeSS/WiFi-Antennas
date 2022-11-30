@@ -31,67 +31,70 @@
 </h2>
 
 <div class="text-center">
-    <table class="table table-striped table-hover">
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
 
-        <tr>
-            <th>Сервер/<br />Клиент</th>
-            <th>
-                <a asp-action="Index"
-                asp-route-ip="@Model.Filter.IpFiltering"
-                asp-route-address="@Model.Filter.AddressFiltering"
-                asp-route-ssid="@Model.Filter.SSIDFiltering"
-                asp-route-sortOrder="@Model.Sort.IpSort">IP-Адрес</a>
-            </th>
-            <th>
-                <a asp-action="Index"
-                asp-route-ip="@Model.Filter.IpFiltering"
-                asp-route-address="@Model.Filter.AddressFiltering"
-                asp-route-ssid="@Model.Filter.SSIDFiltering"
-                asp-route-sortOrder="@Model.Sort.AddressSort">Адрес</a>
-            </th>
-            <th>
-                <a asp-action="Index"
-                asp-route-ip="@Model.Filter.IpFiltering"
-                asp-route-address="@Model.Filter.AddressFiltering"
-                asp-route-ssid="@Model.Filter.SSIDFiltering"
-                asp-route-sortOrder="@Model.Sort.SSIDSort">SSID</a>
-            </th>
-            <th>Пароль<br/>точки доступа</th>
-            <th>Действия</th>
-        </tr>
-
-        @foreach (var antenna in @Model.Antennas)
-        {
             <tr>
-                @if (antenna.IsServer)
-                {
-                    <td>Сервер</td>
-                }else
-                {
-                    <td>Клиент</td>
-                }
-                <td>@antenna.Ip</td>
-                <td>@antenna.Address</td>
-                <td>@antenna.SSID</td>
-                <td>@antenna.AccessPointPassword</td>
-                <td>
-                    <a asp-action=Details asp-route-id=@antenna.Id class="btn btn-outline-secondary btn-sm" role="button">Детали</a>
-                    <a asp-action=Edit asp-route-antennaId=@antenna.Id class="btn btn-outline-success btn-sm" role="button">Редактировать</a>
-                    <button type="button" data-delete-id=@antenna.Id class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Удалить
-                    </button>
+                <th>Сервер/<br />Клиент</th>
+                <th>
+                    <a asp-action="Index"
+                    asp-route-ip="@Model.Filter.IpFiltering"
+                    asp-route-address="@Model.Filter.AddressFiltering"
+                    asp-route-ssid="@Model.Filter.SSIDFiltering"
+                    asp-route-sortOrder="@Model.Sort.IpSort">IP-Адрес</a>
+                </th>
+                <th>
+                    <a asp-action="Index"
+                    asp-route-ip="@Model.Filter.IpFiltering"
+                    asp-route-address="@Model.Filter.AddressFiltering"
+                    asp-route-ssid="@Model.Filter.SSIDFiltering"
+                    asp-route-sortOrder="@Model.Sort.AddressSort">Адрес</a>
+                </th>
+                <th>
+                    <a asp-action="Index"
+                    asp-route-ip="@Model.Filter.IpFiltering"
+                    asp-route-address="@Model.Filter.AddressFiltering"
+                    asp-route-ssid="@Model.Filter.SSIDFiltering"
+                    asp-route-sortOrder="@Model.Sort.SSIDSort">SSID</a>
+                </th>
+                <th>Пароль<br/>точки доступа</th>
+                <th>Действия</th>
+            </tr>
+
+            @foreach (var antenna in @Model.Antennas)
+            {
+                <tr>
+                    @if (antenna.IsServer)
+                    {
+                        <td>Сервер</td>
+                    }else
+                    {
+                        <td>Клиент</td>
+                    }
+                    <td>@antenna.Ip</td>
+                    <td>@antenna.Address</td>
+                    <td>@antenna.SSID</td>
+                    <td>@antenna.AccessPointPassword</td>
+                    <td>
+                        <a asp-action=Details asp-route-id=@antenna.Id class="btn btn-outline-secondary btn-sm" role="button">Детали</a>
+                        <a asp-action=Edit asp-route-antennaId=@antenna.Id class="btn btn-outline-success btn-sm" role="button">Редактировать</a>
+                        <button type="button" data-delete-id=@antenna.Id class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Удалить
+                        </button>
 
                    
-                </td>
-            </tr>
-        }
-    </table>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
 
     <page-link page-action="Index" page-model=@Model.Pagination
                page-url-ip=@Model.Filter.IpFiltering
                page-url-address=@Model.Filter.AddressFiltering
                page-url-ssid=@Model.Filter.SSIDFiltering
-               page-url-sortorder=@Model.Sort.Current></page-link>
+               page-url-sortorder=@Model.Sort.Current
+               class="p-1"></page-link>
 
     <!-- Модальное окно -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
