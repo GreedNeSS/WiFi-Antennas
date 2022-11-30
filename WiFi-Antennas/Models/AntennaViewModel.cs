@@ -8,11 +8,11 @@ namespace WiFi_Antennas.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Поле обязательно к заполнению!")]
-        [StringLength(30, MinimumLength = 5, ErrorMessage = "Длинна адреса должны составлять 5-30 символов")]
+        [StringLength(40, MinimumLength = 5, ErrorMessage = "Длинна адреса должны составлять 5-30 символов")]
         public string? Address { get; set; }
 
         [Required(ErrorMessage = "Поле обязательно к заполнению!")]
-        [StringLength(10, MinimumLength = 4, ErrorMessage = "Длинна SSID должны составлять 4-10 символов")]
+        [StringLength(20, MinimumLength = 4, ErrorMessage = "Длинна SSID должны составлять 4-10 символов")]
         public string? SSID { get; set; }
 
         [Required(ErrorMessage = "Поле обязательно к заполнению!")]
@@ -21,15 +21,15 @@ namespace WiFi_Antennas.Models
         public bool IsServer { get; set; }
 
         [Required(ErrorMessage = "Поле обязательно к заполнению!")]
-        [StringLength(10, MinimumLength = 3, ErrorMessage = "Длинна Login должны составлять 3-10 символов")]
+        [StringLength(20, MinimumLength = 3, ErrorMessage = "Длинна Login должны составлять 3-10 символов")]
         public string? Login { get; set; }
 
         [Required(ErrorMessage = "Поле обязательно к заполнению!")]
-        [StringLength(15, MinimumLength = 8, ErrorMessage = "Длинна пароля должны составлять 8-15 символов")]
+        [StringLength(20, MinimumLength = 8, ErrorMessage = "Длинна пароля должны составлять 8-15 символов")]
         public string? AccessPointPassword { get; set; }
 
         [Required(ErrorMessage = "Поле обязательно к заполнению!")]
-        [StringLength(15, MinimumLength = 8, ErrorMessage = "Длинна пароля должны составлять 8-15 символов")]
+        [StringLength(20, MinimumLength = 8, ErrorMessage = "Длинна пароля должны составлять 8-15 символов")]
         public string? HardwarePassword { get; set; }
         [Required(ErrorMessage = "Поле обязательно к заполнению!")]
         public int ChannelWidth { get; set; }
