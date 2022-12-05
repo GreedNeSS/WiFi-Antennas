@@ -10,7 +10,7 @@ namespace WiFi_Antennas.BLL.DTO
     public class AntennaDTO
     {
         public int Id { get; set; }
-        public string? Address { get; set; }
+        public AddressDTO Address { get; set; } = new AddressDTO();
         public string? SSID { get; set; }
         public string? Ip { get; set; }
         public bool IsServer { get; set; }

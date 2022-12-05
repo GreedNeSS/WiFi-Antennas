@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,28 @@ namespace WiFi_Antennas.BLL.Mappers
     {
         public static Antenna ToEntity(this AntennaDTO antennaDTO)
         {
+            string address = "";
+
+            if (string.IsNullOrEmpty(antennaDTO.Address.City))
+            {
+                address += $"г. {antennaDTO.Address.City}, ";
+            }
+
+            address += $"ул. {antennaDTO.Address.Street}, ";
+            address += $"д. {antennaDTO.Address.Street}";
+
+            if (string.IsNullOrEmpty(antennaDTO.Address.Building))
+            {
+                address += $", к. {antennaDTO.Address.Building}";
+            }
+            if (string.IsNullOrEmpty(antennaDTO.Address.Entrance))
+            {
+                address += $", п. {antennaDTO.Address.Entrance}";
+            }
+
             return new Antenna()
             {
-                Address = antennaDTO.Address,
+                Address = address,
                 Channel = antennaDTO.Channel,
                 ChannelWidth = antennaDTO.ChannelWidth,
                 Ip = antennaDTO.Ip,
@@ -31,9 +51,21 @@ namespace WiFi_Antennas.BLL.Mappers
 
         public static AntennaDTO ToDTO(this Antenna antenna)
         {
+            AddressDTO address = new AddressDTO();
+            address.ShortAddress = antenna.Address;
+            string[] chanks = antenna.Address.Split(",");
+
+            foreach (var item in chanks)
+            {
+                if (item.Contains("г."))
+                {
+                    address.City = 
+                }
+            }
+
             return new AntennaDTO
             {
-                Address = antenna.Address,
+                Address = address,
                 Channel = antenna.Channel,
                 ChannelWidth = antenna.ChannelWidth,
                 Ip = antenna.Ip,
