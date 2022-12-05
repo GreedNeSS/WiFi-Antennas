@@ -6,10 +6,7 @@ namespace WiFi_Antennas.Models
 
     {
         public int Id { get; set; }
-
-        [Required(ErrorMessage = "Поле обязательно к заполнению!")]
-        [StringLength(40, MinimumLength = 5, ErrorMessage = "Длинна адреса должны составлять 5-30 символов")]
-        public string? Address { get; set; }
+        public Address? Address { get; set; }
 
         [Required(ErrorMessage = "Поле обязательно к заполнению!")]
         [StringLength(20, MinimumLength = 4, ErrorMessage = "Длинна SSID должны составлять 4-10 символов")]
