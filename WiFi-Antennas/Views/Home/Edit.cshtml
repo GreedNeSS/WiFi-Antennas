@@ -10,61 +10,61 @@
     <form method="post">
         <input asp-for="Id" hidden/>
         <div>
-            <label asp-for="Ip" class="form-label">Введите IP: </label>
+            <label asp-for="Ip" class="form-label">Введите IP: * </label>
             <input asp-for="Ip" class="form-control" />
             <div class="invalid-feedback" style="display:block;">
                 <span asp-validation-for="Ip"></span>
             </div>
         </div>
         <div>
-            <label asp-for="Address.City" class="form-label">Введите адрес: </label>
+            <label asp-for="Address.City" class="form-label">Введите город: </label>
             <input asp-for="Address.City" class="form-control" />
         </div>
         <div>
-            <label asp-for="Address.Street" class="form-label">Введите адрес: </label>
+            <label asp-for="Address.Street" class="form-label">Введите улицу: *</label>
             <input asp-for="Address.Street" class="form-control" />
             <div class="invalid-feedback" style="display:block;">
                 <span asp-validation-for="Address.Street"></span>
             </div>
         </div>
         <div>
-            <label asp-for="Address.House" class="form-label">Введите адрес: </label>
+            <label asp-for="Address.House" class="form-label">Введите дом: * </label>
             <input asp-for="Address.House" class="form-control" />
             <div class="invalid-feedback" style="display:block;">
                 <span asp-validation-for="Address.House"></span>
             </div>
         </div>
         <div>
-            <label asp-for="Address.Building" class="form-label">Введите адрес: </label>
+            <label asp-for="Address.Building" class="form-label">Введите корпус: </label>
             <input asp-for="Address.Building" class="form-control" />
         </div>
         <div>
-            <label asp-for="Address.Entrance" class="form-label">Введите адрес: </label>
+            <label asp-for="Address.Entrance" class="form-label">Введите подъезд: </label>
             <input asp-for="Address.Entrance" class="form-control" />
         </div>
         <div>
-            <label asp-for="SSID" class="form-label">Введите SSID: </label>
+            <label asp-for="SSID" class="form-label">Введите SSID: * </label>
             <input asp-for="SSID" class="form-control" />
             <div class="invalid-feedback" style="display:block;">
                 <span asp-validation-for="SSID"></span>
             </div>
         </div>
         <div>
-            <label asp-for="Login" class="form-label">Введите логин: </label>
+            <label asp-for="Login" class="form-label">Введите логин: * </label>
             <input asp-for="Login" class="form-control" />
             <div class="invalid-feedback" style="display:block;">
                 <span asp-validation-for="Login"></span>
             </div>
         </div>
         <div>
-            <label asp-for="AccessPointPassword" class="form-label">Введите пароль точки доступа: </label>
+            <label asp-for="AccessPointPassword" class="form-label">Введите пароль точки доступа: * </label>
             <input asp-for="AccessPointPassword" class="form-control"/>
             <div class="invalid-feedback" style="display:block;">
                 <span asp-validation-for="AccessPointPassword"></span>
             </div>
         </div>
         <div>
-            <label asp-for="HardwarePassword" class="form-label">Введите пароль для настройки антенны: </label>
+            <label asp-for="HardwarePassword" class="form-label">Введите пароль для настройки антенны: * </label>
             <input asp-for="HardwarePassword" class="form-control"/>
             <div class="invalid-feedback" style="display:block;">
                 <span asp-validation-for="HardwarePassword"></span>
