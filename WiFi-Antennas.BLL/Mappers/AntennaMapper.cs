@@ -15,7 +15,7 @@ namespace WiFi_Antennas.BLL.Mappers
         {
             string address = "";
 
-            if (string.IsNullOrEmpty(antennaDTO.Address.City))
+            if (!string.IsNullOrEmpty(antennaDTO.Address.City))
             {
                 address += $"г. {antennaDTO.Address.City?.Trim()}, ";
             }
@@ -23,11 +23,11 @@ namespace WiFi_Antennas.BLL.Mappers
             address += $"ул. {antennaDTO.Address.Street?.Trim()}, ";
             address += $"д. {antennaDTO.Address.House?.Trim()}";
 
-            if (string.IsNullOrEmpty(antennaDTO.Address.Building))
+            if (!string.IsNullOrEmpty(antennaDTO.Address.Building))
             {
                 address += $", к. {antennaDTO.Address.Building?.Trim()}";
             }
-            if (string.IsNullOrEmpty(antennaDTO.Address.Entrance))
+            if (!string.IsNullOrEmpty(antennaDTO.Address.Entrance))
             {
                 address += $", п. {antennaDTO.Address.Entrance?.Trim()}";
             }
