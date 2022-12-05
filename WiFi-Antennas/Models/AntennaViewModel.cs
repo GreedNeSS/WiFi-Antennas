@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace WiFi_Antennas.Models
 {
@@ -6,7 +7,7 @@ namespace WiFi_Antennas.Models
 
     {
         public int Id { get; set; }
-        public Address? Address { get; set; }
+        public Address Address { get; set; } = new Address();
 
         [Required(ErrorMessage = "Поле обязательно к заполнению!")]
         [StringLength(20, MinimumLength = 4, ErrorMessage = "Длинна SSID должны составлять 4-10 символов")]

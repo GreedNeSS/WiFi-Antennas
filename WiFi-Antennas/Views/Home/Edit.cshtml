@@ -17,11 +17,30 @@
             </div>
         </div>
         <div>
-            <label asp-for="Address" class="form-label">Введите адрес: </label>
-            <input asp-for="Address" class="form-control" />
+            <label asp-for="Address.City" class="form-label">Введите адрес: </label>
+            <input asp-for="Address.City" class="form-control" />
+        </div>
+        <div>
+            <label asp-for="Address.Street" class="form-label">Введите адрес: </label>
+            <input asp-for="Address.Street" class="form-control" />
             <div class="invalid-feedback" style="display:block;">
-                <span asp-validation-for="Address"></span>
+                <span asp-validation-for="Address.Street"></span>
             </div>
+        </div>
+        <div>
+            <label asp-for="Address.House" class="form-label">Введите адрес: </label>
+            <input asp-for="Address.House" class="form-control" />
+            <div class="invalid-feedback" style="display:block;">
+                <span asp-validation-for="Address.House"></span>
+            </div>
+        </div>
+        <div>
+            <label asp-for="Address.Building" class="form-label">Введите адрес: </label>
+            <input asp-for="Address.Building" class="form-control" />
+        </div>
+        <div>
+            <label asp-for="Address.Entrance" class="form-label">Введите адрес: </label>
+            <input asp-for="Address.Entrance" class="form-control" />
         </div>
         <div>
             <label asp-for="SSID" class="form-label">Введите SSID: </label>

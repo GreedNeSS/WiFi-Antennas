@@ -13,5 +13,6 @@ namespace WiFi_Antennas.Models
         public string? House { get; set; }
         public string? Building { get; set; }
         public string? Entrance { get; set; }
+        public string? ShortAddress { get; set; }
     }
 }
