@@ -13,9 +13,19 @@ namespace WiFi_Antennas.Models
         [StringLength(20, MinimumLength = 4, ErrorMessage = "Длинна SSID должны составлять 4-10 символов")]
         public string? SSID { get; set; }
 
+        public string? StringIP { get; set; }
         [Required(ErrorMessage = "Поле обязательно к заполнению!")]
-        [StringLength(15, MinimumLength = 7, ErrorMessage = "Длинна IP адреса должны составлять 7-15 символов")]
-        public string? Ip { get; set; }
+        [Range(0, 255, ErrorMessage = "Значение каждого поля IP адреса должны быть в пределах от 0 до 255")]
+        public byte Ip1 { get; set; }
+        [Required(ErrorMessage = "Поле обязательно к заполнению!")]
+        [Range(0, 255, ErrorMessage = "Значение каждого поля IP адреса должны быть в пределах от 0 до 255")]
+        public byte Ip2 { get; set; }
+        [Required(ErrorMessage = "Поле обязательно к заполнению!")]
+        [Range(0, 255, ErrorMessage = "Значение каждого поля IP адреса должны быть в пределах от 0 до 255")]
+        public byte Ip3 { get; set; }
+        [Required(ErrorMessage = "Поле обязательно к заполнению!")]
+        [Range(0, 255, ErrorMessage = "Значение каждого поля IP адреса должны быть в пределах от 0 до 255")]
+        public byte Ip4 { get; set; }
         public bool IsServer { get; set; }
 
         [Required(ErrorMessage = "Поле обязательно к заполнению!")]
