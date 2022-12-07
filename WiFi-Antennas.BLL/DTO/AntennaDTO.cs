@@ -12,12 +12,7 @@ namespace WiFi_Antennas.BLL.DTO
         public int Id { get; set; }
         public AddressDTO Address { get; set; } = new AddressDTO();
         public string? SSID { get; set; }
-
-        public string? StringIP { get; set; }
-        public byte Ip1 { get; set; }
-        public byte Ip2 { get; set; }
-        public byte Ip3 { get; set; }
-        public byte Ip4 { get; set; }
+        public IPDTO IP { get; set; } = new IPDTO();
         public bool IsServer { get; set; }
         public string? Login { get; set; }
         public string? AccessPointPassword { get; set; }
