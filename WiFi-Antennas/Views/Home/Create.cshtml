@@ -15,31 +15,26 @@
                 <span asp-validation-for="Ip"></span>
             </div>
         </div>
-        <div>
-            <label asp-for="Address.City" class="form-label">Введите город: </label>
+        <label asp-for="Address.City" class="form-label">Введите адрес (Обязательные поля улица и дом): </label>
+        <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Город:</span>
             <input asp-for="Address.City" class="form-control" />
-        </div>
-        <div>
-            <label asp-for="Address.Street" class="form-label">Введите улицу: * </label>
+            <span class="input-group-text" id="inputGroup-sizing-sm">Улица: *</span>
             <input asp-for="Address.Street" class="form-control" />
             <div class="invalid-feedback" style="display:block;">
                 <span asp-validation-for="Address.Street"></span>
             </div>
         </div>
-        <div>
-            <label asp-for="Address.House" class="form-label">Введите дом: * </label>
+        <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Дом: *</span>
             <input asp-for="Address.House" class="form-control" />
+            <span class="input-group-text" id="inputGroup-sizing-sm">Корпус:</span>
+            <input asp-for="Address.Building" class="form-control" />
+            <span class="input-group-text" id="inputGroup-sizing-sm">Подъезд:</span>
+            <input asp-for="Address.Entrance" class="form-control" />
             <div class="invalid-feedback" style="display:block;">
                 <span asp-validation-for="Address.House"></span>
             </div>
-        </div>
-        <div>
-            <label asp-for="Address.Building" class="form-label">Введите корпус: </label>
-            <input asp-for="Address.Building" class="form-control" />
-        </div>
-        <div>
-            <label asp-for="Address.Entrance" class="form-label">Введите подъезд: </label>
-            <input asp-for="Address.Entrance" class="form-control" />
         </div>
         <div>
             <label asp-for="SSID" class="form-label">Введите SSID: * </label>
