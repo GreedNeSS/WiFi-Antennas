@@ -8,9 +8,15 @@
     <h3>Введите данные новой антенны:</h3>
     <div>Поля со звёздочкой обязательны к заполнению!</div>
     <form method="post">
-        <div>
-            <label asp-for="Ip" class="form-label">Введите IP: * </label>
-            <input asp-for="Ip" class="form-control" />
+        <label asp-for="Ip" class="form-label">Введите IP: * </label>
+        <div class="input-group">
+            <input asp-for="Ip" type="number" class="form-control" />
+            <span class="input-group-text">.</span>
+            <input asp-for="Ip" type="number" class="form-control" />
+            <span class="input-group-text">.</span>
+            <input asp-for="Ip" type="number" class="form-control" />
+            <span class="input-group-text">.</span>
+            <input asp-for="Ip" type="number" class="form-control" />
             <div class="invalid-feedback" style="display:block;">
                 <span asp-validation-for="Ip"></span>
             </div>
