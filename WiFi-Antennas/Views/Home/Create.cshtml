@@ -8,26 +8,26 @@
     <h3>Введите данные новой антенны:</h3>
     <div>Поля со звёздочкой обязательны к заполнению!</div>
     <form method="post">
-        <label asp-for="Ip1" class="form-label">Введите IP: * </label>
+        <label asp-for="IP.Ip1" class="form-label">Введите IP: * </label>
         <div class="input-group">
-            <input asp-for="Ip1" type="number" class="form-control" />
+            <input asp-for="IP.Ip1" type="number" class="form-control" />
             <span class="input-group-text">.</span>
-            <input asp-for="Ip2" type="number" class="form-control" />
+            <input asp-for="IP.Ip2" type="number" class="form-control" />
             <span class="input-group-text">.</span>
-            <input asp-for="Ip3" type="number" class="form-control" />
+            <input asp-for="IP.Ip3" type="number" class="form-control" />
             <span class="input-group-text">.</span>
-            <input asp-for="Ip4" type="number" class="form-control" />
+            <input asp-for="IP.Ip4" type="number" class="form-control" />
             <div class="invalid-feedback" style="display:block;">
-                <span asp-validation-for="Ip1"></span>
+                <span asp-validation-for="IP.Ip1"></span>
             </div>
             <div class="invalid-feedback" style="display:block;">
-                <span asp-validation-for="Ip2"></span>
+                <span asp-validation-for="IP.Ip2"></span>
             </div>
             <div class="invalid-feedback" style="display:block;">
-                <span asp-validation-for="Ip3"></span>
+                <span asp-validation-for="IP.Ip3"></span>
             </div>
             <div class="invalid-feedback" style="display:block;">
-                <span asp-validation-for="Ip4"></span>
+                <span asp-validation-for="IP.Ip4"></span>
             </div>
         </div>
         <label asp-for="Address.City" class="form-label">Введите адрес (Обязательные поля улица и дом): </label>
