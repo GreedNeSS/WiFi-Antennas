@@ -16,24 +16,44 @@
             </div>
         </div>
         <label asp-for="Address.City" class="form-label">Введите адрес (Обязательные поля улица и дом): </label>
-        <div class="input-group input-group-sm mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Город:</span>
-            <input asp-for="Address.City" class="form-control" />
-            <span class="input-group-text" id="inputGroup-sizing-sm">Улица: *</span>
-            <input asp-for="Address.Street" class="form-control" />
-            <div class="invalid-feedback" style="display:block;">
-                <span asp-validation-for="Address.Street"></span>
+        <div class="row g-3">
+            <div class="col-md">
+                <div class="form-floating">
+                    <input asp-for="Address.City" class="form-control" placeholder="Город" />
+                    <label asp-for="Address.City">Город: </label>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="form-floating">
+                    <input asp-for="Address.Street" class="form-control" placeholder="Улица" />
+                    <label asp-for="Address.Street">Улица: *</label>
+                    <div class="invalid-feedback" style="display:block;">
+                        <span asp-validation-for="Address.Street"></span>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="input-group input-group-sm mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Дом: *</span>
-            <input asp-for="Address.House" class="form-control" />
-            <span class="input-group-text" id="inputGroup-sizing-sm">Корпус:</span>
-            <input asp-for="Address.Building" class="form-control" />
-            <span class="input-group-text" id="inputGroup-sizing-sm">Подъезд:</span>
-            <input asp-for="Address.Entrance" class="form-control" />
-            <div class="invalid-feedback" style="display:block;">
-                <span asp-validation-for="Address.House"></span>
+        <div class="row g-3">
+            <div class="col-md">
+                <div class="form-floating">
+                    <input asp-for="Address.House" class="form-control" placeholder="Дом" />
+                    <label asp-for="Address.House">Дом: * </label>
+                    <div class="invalid-feedback" style="display:block;">
+                        <span asp-validation-for="Address.House"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="form-floating">
+                    <input asp-for="Address.Building" class="form-control" placeholder="Корпус" />
+                    <label asp-for="Address.Building">Корпус: </label>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="form-floating">
+                    <input asp-for="Address.Entrance" class="form-control" placeholder="Подъезд" />
+                    <label asp-for="Address.Entrance">Подъезд: </label>
+                </div>
             </div>
         </div>
         <div>
