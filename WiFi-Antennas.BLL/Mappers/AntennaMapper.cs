@@ -13,28 +13,9 @@ namespace WiFi_Antennas.BLL.Mappers
     {
         public static Antenna ToEntity(this AntennaDTO antennaDTO)
         {
-            string address = "";
-
-            if (!string.IsNullOrEmpty(antennaDTO.Address.City))
-            {
-                address += $"г. {antennaDTO.Address.City?.Trim()}, ";
-            }
-
-            address += $"ул. {antennaDTO.Address.Street?.Trim()}, ";
-            address += $"д. {antennaDTO.Address.House?.Trim()}";
-
-            if (!string.IsNullOrEmpty(antennaDTO.Address.Building))
-            {
-                address += $", к. {antennaDTO.Address.Building?.Trim()}";
-            }
-            if (!string.IsNullOrEmpty(antennaDTO.Address.Entrance))
-            {
-                address += $", п. {antennaDTO.Address.Entrance?.Trim()}";
-            }
-
             return new Antenna()
             {
-                Address = address,
+                Address = antennaDTO.Address.AddressToString(),
                 Channel = antennaDTO.Channel,
                 ChannelWidth = antennaDTO.ChannelWidth,
                 Ip = IPMapper.IpToString(antennaDTO.IP),
@@ -51,37 +32,9 @@ namespace WiFi_Antennas.BLL.Mappers
 
         public static AntennaDTO ToDTO(this Antenna antenna)
         {
-            AddressDTO address = new AddressDTO();
-            address.ShortAddress = antenna.Address;
-            string[] chanks = antenna.Address.Split(",");
-
-            foreach (var item in chanks)
-            {
-                if (item.Contains("г."))
-                {
-                    address.City = item.Replace("г. ", "").Trim();
-                }
-                if (item.Contains("ул."))
-                {
-                    address.Street = item.Replace("ул. ", "").Trim();
-                }
-                if (item.Contains("д."))
-                {
-                    address.House = item.Replace("д. ", "").Trim();
-                }
-                if (item.Contains("к."))
-                {
-                    address.Building = item.Replace("к. ", "").Trim();
-                }
-                if (item.Contains("п."))
-                {
-                    address.Entrance = item.Replace("п. ", "").Trim();
-                }
-            }
-
             return new AntennaDTO
             {
-                Address = address,
+                Address = antenna.StringToAddressDTO(),
                 Channel = antenna.Channel,
                 ChannelWidth = antenna.ChannelWidth,
                 IP = antenna.ToIpDTO(),
