@@ -38,7 +38,14 @@ namespace WiFi_Antennas.BLL.Services
         {
             try
             {
-                await repo.Delete((new AntennaDTO { Id = antennaId }).ToEntity());
+                AntennaDTO antennaDTO = new AntennaDTO { Id = antennaId };
+
+                for (int i = 0; i < 4; i++)
+                {
+                    antennaDTO.IP.Ip.Add(0);
+                }
+
+                await repo.Delete(antennaDTO.ToEntity());
             }
             catch (Exception)
             {
