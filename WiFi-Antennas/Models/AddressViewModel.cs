@@ -2,7 +2,7 @@
 
 namespace WiFi_Antennas.Models
 {
-    public class Address
+    public class AddressViewModel
     {
         public string? City { get; set; }
         [Required(ErrorMessage = "Поле обязательно к заполнению!")]

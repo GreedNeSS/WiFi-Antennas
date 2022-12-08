@@ -6,7 +6,7 @@ namespace WiFi_Antennas.Mappers
 {
     public static class IPMapper
     {
-        public static IPDTO ToDTO(this IP ip)
+        public static IPDTO ToDTO(this IPViewModel ip)
         {
             return new IPDTO
             {
@@ -14,10 +14,10 @@ namespace WiFi_Antennas.Mappers
             };
         }
 
-        public static IP ToToViewModel(this IPDTO ipDTO)
+        public static IPViewModel ToToViewModel(this IPDTO ipDTO)
         {
             Console.WriteLine(ipDTO.Sections.Count);
-            IP ip = new IP();
+            IPViewModel ip = new IPViewModel();
             ip.Sections = ipDTO.Sections;
             ip.StringIP = ipDTO.StringIP;
             return ip;

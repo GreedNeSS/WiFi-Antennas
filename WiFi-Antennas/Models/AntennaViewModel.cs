@@ -7,12 +7,12 @@ namespace WiFi_Antennas.Models
 
     {
         public int Id { get; set; }
-        public Address Address { get; set; } = new Address();
+        public AddressViewModel Address { get; set; } = new AddressViewModel();
 
         [Required(ErrorMessage = "Поле обязательно к заполнению!")]
         [StringLength(20, MinimumLength = 4, ErrorMessage = "Длинна SSID должны составлять 4-10 символов")]
         public string? SSID { get; set; }
-        public IP IP { get; set; } = new IP();
+        public IPViewModel IP { get; set; } = new IPViewModel();
         public bool IsServer { get; set; }
 
         [Required(ErrorMessage = "Поле обязательно к заполнению!")]

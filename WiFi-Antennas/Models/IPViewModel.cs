@@ -3,7 +3,7 @@ using WiFi_Antennas.ValidationAttributes;
 
 namespace WiFi_Antennas.Models
 {
-    public class IP
+    public class IPViewModel
     {
         public string? StringIP { get; set; }
 

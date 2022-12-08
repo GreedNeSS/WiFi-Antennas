@@ -8,17 +8,9 @@ namespace WiFi_Antennas.Mappers
     {
         public static AntennaDTO ToDTO(this AntennaViewModel antennaView)
         {
-            AddressDTO addressDTO = new AddressDTO();
-
-            addressDTO.City = antennaView.Address.City;
-            addressDTO.Street = antennaView.Address.Street;
-            addressDTO.House = antennaView.Address.House;
-            addressDTO.Building = antennaView.Address.Building;
-            addressDTO.Entrance = antennaView.Address.Entrance;
-
             return new AntennaDTO()
             {
-                Address = addressDTO,
+                Address = antennaView.Address.ToDTO(),
                 Channel = antennaView.Channel,
                 ChannelWidth = antennaView.ChannelWidth,
                 IP = antennaView.IP.ToDTO(),
@@ -34,18 +26,9 @@ namespace WiFi_Antennas.Mappers
         }
         public static AntennaViewModel ToViewModel(this AntennaDTO antennaDTO)
         {
-            Address address = new Address();
-
-            address.City = antennaDTO.Address.City;
-            address.Street = antennaDTO.Address.Street;
-            address.House = antennaDTO.Address.House;
-            address.Building = antennaDTO.Address.Building;
-            address.Entrance = antennaDTO.Address.Entrance;
-            address.ShortAddress = antennaDTO.Address.ShortAddress;
-
             return new AntennaViewModel()
             {
-                Address = address,
+                Address = antennaDTO.Address.ToViewModel(),
                 Channel = antennaDTO.Channel,
                 ChannelWidth = antennaDTO.ChannelWidth,
                 IP = antennaDTO.IP.ToToViewModel(),
