@@ -14,7 +14,6 @@ namespace WiFi_Antennas.BLL.Mappers
         {
             string ip = antenna.Ip;
             IPDTO dto = new IPDTO();
-            dto.StringIP = ip;
 
             string[] strings = ip.Split(".");
 
@@ -24,6 +23,8 @@ namespace WiFi_Antennas.BLL.Mappers
                 {
                     byte b = byte.Parse(strings[i]);
                     dto.Sections.Add(b);
+                    dto.StringIP += b;
+                    dto.StringIP += i != 3 ? "." : string.Empty;
                 }
                 catch (Exception)
                 {
