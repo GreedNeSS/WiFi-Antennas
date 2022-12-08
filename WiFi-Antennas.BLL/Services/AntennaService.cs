@@ -42,7 +42,7 @@ namespace WiFi_Antennas.BLL.Services
 
                 for (int i = 0; i < 4; i++)
                 {
-                    antennaDTO.IP.Ip.Add(0);
+                    antennaDTO.IP.Sections.Add(0);
                 }
 
                 await repo.Delete(antennaDTO.ToEntity());

@@ -23,7 +23,7 @@ namespace WiFi_Antennas.BLL.Mappers
                 try
                 {
                     byte b = byte.Parse(strings[i]);
-                    dto.Ip.Add(b);
+                    dto.Sections.Add(b);
                 }
                 catch (Exception)
                 {
@@ -40,17 +40,17 @@ namespace WiFi_Antennas.BLL.Mappers
 
             for (int i = 0; i < 4; i++)
             {
-                if (iPDTO.Ip[i] > 99)
+                if (iPDTO.Sections[i] > 99)
                 {
-                    ip += iPDTO.Ip[i].ToString();
+                    ip += iPDTO.Sections[i].ToString();
                 }
-                else if (iPDTO.Ip[i] > 9)
+                else if (iPDTO.Sections[i] > 9)
                 {
-                    ip += "0" + iPDTO.Ip[i].ToString();
+                    ip += "0" + iPDTO.Sections[i].ToString();
                 }
                 else
                 {
-                    ip += "00" + iPDTO.Ip[i].ToString();
+                    ip += "00" + iPDTO.Sections[i].ToString();
                 }
 
                 if (i != 3)

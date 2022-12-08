@@ -9,7 +9,7 @@ namespace WiFi_Antennas.Models
 
         //[Required]
         //[IpValidation(ErrorMessage = "Значение полей IP адреса должны быть в пределах от 0 до 255")]
-        public List<byte> Ip { get; set; } = new List<byte>(4);
+        public List<byte> Sections { get; set; } = new List<byte>(4);
 
     }
 }

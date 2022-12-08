@@ -9,17 +9,17 @@
 
     <form method="post">
         <input asp-for="Id" hidden/>
-        <label asp-for="IP.Ip" class="form-label">Введите IP: * </label>
+        <label asp-for="IP.Sections" class="form-label">Введите IP: * </label>
         <div class="input-group">
-            <input asp-for="IP.Ip[0]" type="number" class="form-control" />
+            <input asp-for="IP.Sections[0]" type="number" class="form-control" />
             <span class="input-group-text">.</span>
-            <input asp-for="IP.Ip[1]" type="number" class="form-control" />
+            <input asp-for="IP.Sections[1]" type="number" class="form-control" />
             <span class="input-group-text">.</span>
-            <input asp-for="IP.Ip[2]" type="number" class="form-control" />
+            <input asp-for="IP.Sections[2]" type="number" class="form-control" />
             <span class="input-group-text">.</span>
-            <input asp-for="IP.Ip[3]" type="number" class="form-control" />
+            <input asp-for="IP.Sections[3]" type="number" class="form-control" />
             <div class="invalid-feedback" style="display:block;">
-                <span asp-validation-for="IP.Ip"></span>
+                <span asp-validation-for="IP.Sections"></span>
             </div>
         </div>
         <label asp-for="Address.City" class="form-label">Введите адрес (Обязательные поля улица и дом): </label>

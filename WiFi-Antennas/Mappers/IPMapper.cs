@@ -10,15 +10,15 @@ namespace WiFi_Antennas.Mappers
         {
             return new IPDTO
             {
-                Ip = ip.Ip,
+                Sections = ip.Sections,
             };
         }
 
         public static IP ToToViewModel(this IPDTO ipDTO)
         {
-            Console.WriteLine(ipDTO.Ip.Count);
+            Console.WriteLine(ipDTO.Sections.Count);
             IP ip = new IP();
-            ip.Ip = ipDTO.Ip;
+            ip.Sections = ipDTO.Sections;
             ip.StringIP = ipDTO.StringIP;
             return ip;
         }
