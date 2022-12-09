@@ -21,7 +21,7 @@ namespace WiFi_Antennas.BLL.Mappers
             {
                 try
                 {
-                    byte b = byte.Parse(strings[i]);
+                    int b = int.Parse(strings[i]);
                     dto.Sections.Add(b);
                     dto.StringIP += b;
                     dto.StringIP += i != 3 ? "." : string.Empty;

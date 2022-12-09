@@ -12,6 +12,7 @@ namespace WiFi_Antennas.Models
         [Required(ErrorMessage = "Поле обязательно к заполнению!")]
         [StringLength(20, MinimumLength = 4, ErrorMessage = "Длинна SSID должны составлять 4-10 символов")]
         public string? SSID { get; set; }
+
         public IPViewModel IP { get; set; } = new IPViewModel();
         public bool IsServer { get; set; }
 

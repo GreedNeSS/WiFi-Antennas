@@ -9,6 +9,6 @@ namespace WiFi_Antennas.BLL.DTO
     public class IPDTO
     {
         public string? StringIP { get; set; }
-        public List<byte> Sections { get; set; } = new List<byte>(4);
+        public List<int> Sections { get; set; } = new List<int>(4);
     }
 }
