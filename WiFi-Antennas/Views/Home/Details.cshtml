@@ -4,7 +4,7 @@
 
 @model AntennaViewModel
 
-<div class="card text-bg-light mb-3" ">
+<div class="card text-bg-light mb-3">
     <div class="card-header">Карточка антенны</div>
     <div class="card-body">
         <h5 class="card-title">Параметры антенны:</h5>
@@ -63,5 +63,32 @@
                 <td>@Model.Commentary</td>
             </tr>
         </table>
+
+        <a asp-action=Edit asp-route-antennaId=@Model.Id class="btn btn-outline-success btn-sm" role="button">Редактировать</a>
+        <button type="button" data-delete-id=@Model.Id class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Удалить
+        </button>
+
+        <!-- Модальное окно -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Удаление антенны!</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                    </div>
+                    <div class="modal-body">
+                        Вы действительно хотите удалить эту антенну?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Закрыть</button>
+                        <form method="post" id="formDelete" asp-action=Delete>
+                            <button type="submit" class="btn btn-outline-danger btn-sm">Удалить</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+<script src="~/js/site.js" asp-append-version="true"></script>
