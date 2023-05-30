@@ -64,8 +64,8 @@
             </tr>
         </table>
 
-        <a asp-action=Edit asp-route-antennaId=@Model.Id class="btn btn-outline-success btn-sm" role="button">Редактировать</a>
-        <button type="button" data-delete-id=@Model.Id class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <a asp-action=Edit asp-route-antennaId=@Model.Id class="btn btn-outline-success mt-3" role="button">Редактировать</a>
+        <button type="button" data-delete-id=@Model.Id class="btn btn-outline-danger mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Удалить
         </button>
 
@@ -81,9 +81,9 @@
                         Вы действительно хотите удалить эту антенну?
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Закрыть</button>
+                        <button type="button" class="btn btn-outline-secondary mt-3" data-bs-dismiss="modal">Закрыть</button>
                         <form method="post" id="formDelete" asp-action=Delete>
-                            <button type="submit" class="btn btn-outline-danger btn-sm">Удалить</button>
+                            <button type="submit" class="btn btn-outline-danger mt-3">Удалить</button>
                         </form>
                     </div>
                 </div>
