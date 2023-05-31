@@ -111,7 +111,7 @@
 
             @foreach (var antenna in @Model.Antennas)
             {
-                <tr>
+                <tr class="position-relative">
                     @if (antenna.IsServer)
                     {
                         <td>Сервер</td>
@@ -119,7 +119,7 @@
                     {
                         <td>Клиент</td>
                     }
-                    <td><a asp-action=Details asp-route-id=@antenna.Id>@antenna.IP.StringIP</a></td>
+                    <td><a asp-action=Details asp-route-id=@antenna.Id class="stretched-link">@antenna.IP.StringIP</a></td>
                     <td>@antenna.Address.ShortAddress</td>
                     <td>@antenna.SSID</td>
                     <td>@antenna.AccessPointPassword</td>
