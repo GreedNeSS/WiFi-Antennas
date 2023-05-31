@@ -86,7 +86,13 @@ namespace WiFi_Antennas.DAL.Repositories
 
             if (!string.IsNullOrEmpty(address))
             {
-                antennas = antennas.Where(a => a.Address!.Contains(address));
+                address = address.Trim();
+                address = address.ToLower();
+                string addressVar1 = char.ToUpper(address[0]) + address.Substring(1);
+                string addressVar2 = char.ToLower(address[0]) + address.Substring(1);
+
+                antennas = antennas.Where(a => a.Address!.Contains(addressVar1))
+                    .Union(antennas.Where(a => a.Address!.Contains(addressVar2)));
             }
 
             return antennas;

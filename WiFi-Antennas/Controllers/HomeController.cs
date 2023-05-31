@@ -29,14 +29,22 @@ namespace WiFi_Antennas.Controllers
             int antennaCount = await _antennaService.GetCountAsync(ssid, ip, address);
             int skip = (page - 1) * pageSize;
 
-            List<AntennaViewModel> antennas = (await _antennaService.GetAntennasAsync(pageSize, skip, ssid, ip, address, sortOrder.ToDTO()))
+            try
+            {
+                List<AntennaViewModel> antennas = (await _antennaService.GetAntennasAsync(pageSize, skip, ssid, ip, address, sortOrder.ToDTO()))
                 .Select(a => a.ToViewModel())
                 .ToList();
 
-            return View(new IndexViewModel(antennas,
-                new FilterViewModel { IpFiltering = ip, AddressFiltering = address, SSIDFiltering = ssid},
+                return View(new IndexViewModel(antennas,
+                new FilterViewModel { IpFiltering = ip, AddressFiltering = address, SSIDFiltering = ssid },
                 new SortViewModel(sortOrder),
                 new PageViewModel(antennaCount, page, pageSize)));
+            }
+            catch (ValidationException ex)
+            {
+
+                return View("Error", new ErrorViewModel(ex.Message, ex.Property));
+            }
         }
 
         [HttpGet]

@@ -69,6 +69,12 @@ namespace WiFi_Antennas.BLL.Services
             string address = "", SortStateDTO sortState = SortStateDTO.IpAsc)
         {
             List<Antenna> antennas = await repo.GetAntennas(take, skip, ssid, ip, address, sortState.ToDAL());
+
+            if (antennas.Count == 0)
+            {
+                throw new ValidationException("Ни одной антенны не найдено!", "");
+            }
+
             return antennas.Select(a => a.ToDTO()).ToList();
         }
 
